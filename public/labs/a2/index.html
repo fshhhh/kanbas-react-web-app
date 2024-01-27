@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<!--
+		<style>
+            p {
+                background-color: blue;
+                color: white;
+            }
+		</style> -->
+		<link href="index.css"
+			  rel="stylesheet"/>
+	</head>
+	<body>
+		<h1>Cascading Style Sheets (CSS)</h1>
+		<h2>Style attribute and tag</h2>
+		<h3>Style attribute</h3>
+			<p style="background-color: blue; color: white">
+				Style attribute allows configuring look and feel right on the element.
+				Although it's very convenient it is considered bad practice and you
+				should avoid using the style attribute
+			</p>
+
+		<h3>Style tag</h3>
+		<p>
+			A slightly better way to configure look and feel
+			is to declare CSS rules in the STYLE tag in the
+			header and then refer to the tag by their name,
+			ID, or class This paragraph's style is set by a
+			rule referring to the P tags
+		</p>
+
+		<h3>Link tag</h3>
+		<p>
+			The best way to apply CSS rules is to declare
+			them in a separate CSS file and load it with
+			the LINK tag. Always use this method.
+		</p>
+
+		<h3>ID selectors</h3>
+		<p id="id-selector-1">
+			Instead of changing the look and
+			feel of all the elements of the
+			same name, e.g., P, we can refer
+			to a specific element by its ID
+		</p>
+		<p id="id-selector-2">
+			Here's another paragraph using a
+			different ID and a different look
+			and feel
+		</p>
+
+		<h3>Class selectors</h3>
+		<p class="wd-class-selector">
+			Instead of using IDs to refer
+			to elements, you can use an
+			element's CLASS attribute</p>
+		<h4 class="wd-class-selector">
+			This heading has same style as
+			paragraph above</h4>
+	</body>
+</html>
