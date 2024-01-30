@@ -1,0 +1,43 @@
+.wd-modules,
+.wd-modules * {
+    border-radius: 0%;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wd-modules {
+    margin: 5px;
+    margin-top: 100px;
+}
+
+.wd-modules > li {
+    background-color: white;
+    border: 1px solid gray !important;
+    border-left: none !important;
+}
+
+.wd-modules > li > div {
+    padding: 15px;
+    border-left: 1px solid gray !important;
+}
+
+.wd-modules > li > ul > li {
+    padding: 15px;
+    border-top: 1px solid gray !important;
+    border-left: 3px solid green;
+}
+
+.wd-modules > li {
+    margin-bottom: 40px;
+}
+
+.wd-buttons {
+    margin-bottom: 40px;
+}
+
+.wd-float-right {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
