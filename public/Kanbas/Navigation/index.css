@@ -32,4 +32,29 @@
 .wd-kanbas-navigation a i.fas.fa-user-circle {
     color: lightgrey;
 }
+.bg-light-grey {
+    color: grey;
+}
 
+
+
+.Parent {
+    display: flex;
+    flex-direction: row;
+}
+
+.child1 {
+    width: 20%;
+    height: 100vh;
+    text-align: right;
+}
+
+.child2 {
+    width: 50%;
+    height: 100vh;
+}
+.child3 {
+    width: 30%;
+    height: 100vh;
+    text-align: center;
+}
