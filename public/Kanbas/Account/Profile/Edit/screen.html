@@ -2,13 +2,14 @@
 <head>
     <link rel="stylesheet" href="/Kanbas/styles.css" />
     <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
 </head>
 <body>
-<table width="100%">
-    <tbody>
-    <tr>
-        <td valign="top">
+
+<div class="d-flex">
+    <div class="d-none d-md-block">
             <ul class="wd-kanbas-navigation">
                 <li><a href="http://northeastern.edu">
                     <img src="/images/neu.jpg" width="60px"/></a>
@@ -35,9 +36,9 @@
                 <li><a href="#">
                     <i class="fas fa-question-circle"></i><div>Help</div></a></li>
             </ul>
-          </td>
-          <td valign="top">
-            <ul>
+    </div>
+    <div class="d-none d-md-block">
+        <ul style="margin-left: 100px">
                 <li><a href="/Kanbas/Account/Notifications/index.html"> Notifications</a></li>
                 <li><a href="/Kanbas/Account//Profile/screen.html"> Profile</a></li>
                 <li><a href="/Kanbas/Account/Files/index.html"> Files</a></li>
@@ -47,9 +48,9 @@
                 <li><a href="/Kanbas/Account/TheHub/index.html"> The Hub</a></li>
                 <li><a href="/Kanbas/Account/Qwickly/index.html"> Qwickly Course Tool</a></li>
                 <li><a href="/Kanbas/Account/GlobalAnnoucements/index.html"> Global Annoucements</a></li>
-              </ul>
-          </td>
-          <td valign="top">
+        </ul>
+    </div>
+    <div class="flex-fill">
             <h1>Venice Lin</h1>
     <span>Name:*
         <input value="Venice Lin" />
@@ -100,11 +101,9 @@
     <br />
     <a href="/Kanbas/Account/Profile/Edit/screen.html"><button>Edit Profile</button></a>
     <a href="/Kanbas/Account/Profile/screen.html"><button>Cancel Editing</button></a>
-    
 
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+
+    </div>
+</div>
+</body>
 </html>
