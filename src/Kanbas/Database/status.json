@@ -1,0 +1,58 @@
+[ { "course": "RS101", "type": "todo", "name": "Lecture 1", "due": "Feb 13 at 3:25pm", "number": "RS4550"},
+  { "course": "RS101", "type": "todo", "name": "Lecture 2", "due": "Feb 16 at 3:25pm", "number": "RS4550"},
+  { "course": "RS101", "type": "todo", "name": "Lecture 3", "due": "Feb 20 at 3:25pm", "number": "RS4550"},
+
+  { "course": "RS102", "type": "todo", "name": "Lecture 1", "due": "Feb 12 at 3:25pm", "number": "RS4560"},
+  { "course": "RS102", "type": "todo", "name": "Lecture 2", "due": "Feb 14 at 3:25pm", "number": "RS4560"},
+  { "course": "RS102", "type": "todo", "name": "Lecture 3", "due": "Feb 15 at 3:25pm", "number": "RS4560"},
+
+  { "course": "RS103", "type": "todo", "name": "Lecture 1", "due": "Feb 14 at 3:25pm", "number": "RS4570"},
+  { "course": "RS103", "type": "todo", "name": "Lecture 2", "due": "Feb 15 at 3:25pm", "number": "RS4570"},
+  { "course": "RS103", "type": "todo", "name": "Lecture 3", "due": "Feb 26 at 3:25pm", "number": "RS4570"},
+
+  { "course": "RS101", "type": "feedback", "name": "Q1", "due": "26 out of 29", "number": "RS4550"},
+  { "course": "RS101", "type": "feedback", "name": "Q2", "due": "18 out of 23", "number": "RS4550"},
+  { "course": "RS101", "type": "feedback", "name": "A1", "due": "100 out of 100", "number": "RS4550"},
+
+  { "course": "RS102", "type": "feedback", "name": "A1", "due": "100 out of 100", "number": "RS4560"},
+  { "course": "RS102", "type": "feedback", "name": "A2", "due": "90 out of 100", "number": "RS4560"},
+  { "course": "RS102", "type": "feedback", "name": "EXAM 1", "due": "95 out of 100", "number": "RS4560"},
+
+  { "course": "RS103", "type": "feedback", "name": "LAB 1", "due": "32 out of 32", "number": "RS4570"},
+  { "course": "RS103", "type": "feedback", "name": "LAB 2", "due": "28 out of 32", "number": "RS4570"},
+  { "course": "RS103", "type": "feedback", "name": "A1", "due": "94 out of 100", "number": "RS4570"},
+
+
+  { "course": "RS104", "type": "todo", "name": "Lecture 1", "due": "Feb 22 at 3:25pm", "number": "CS3500"},
+  { "course": "RS104", "type": "todo", "name": "Lecture 2", "due": "Feb 25 at 3:25pm", "number": "CS3500"},
+  { "course": "RS104", "type": "todo", "name": "Lecture 3", "due": "Feb 28 at 3:25pm", "number": "CS3500"},
+
+  { "course": "RS105", "type": "todo", "name": "Lecture 1", "due": "Feb 23 at 3:25pm", "number": "CS3200"},
+  { "course": "RS105", "type": "todo", "name": "Lecture 2", "due": "Feb 26 at 3:25pm", "number": "CS3200"},
+  { "course": "RS105", "type": "todo", "name": "Lecture 3", "due": "Feb 28 at 3:25pm", "number": "CS3200"},
+
+  { "course": "RS106", "type": "todo", "name": "Lecture 1", "due": "Feb 24 at 3:25pm", "number": "CS4550"},
+  { "course": "RS106", "type": "todo", "name": "Lecture 2", "due": "Feb 27 at 3:25pm", "number": "CS4550"},
+  { "course": "RS106", "type": "todo", "name": "Lecture 3", "due": "Mar 1 at 3:25pm", "number": "CS4550"},
+
+  { "course": "RS107", "type": "todo", "name": "Lecture 1", "due": "Feb 25 at 3:25pm", "number": "CS3800"},
+  { "course": "RS107", "type": "todo", "name": "Lecture 2", "due": "Feb 28 at 3:25pm", "number": "CS3800"},
+  { "course": "RS107", "type": "todo", "name": "Lab 1", "due": "Mar 3 at 3:25pm", "number": "CS3800"},
+
+  { "course": "RS104", "type": "feedback", "name": "Quiz 1", "due": "8 out of 10", "number": "CS3500"},
+  { "course": "RS104", "type": "feedback", "name": "Quiz 2", "due": "9 out of 10", "number": "CS3500"},
+  { "course": "RS104", "type": "feedback", "name": "Assignment 1", "due": "85 out of 100", "number": "CS3500"},
+
+  { "course": "RS105", "type": "feedback", "name": "Quiz 1", "due": "7 out of 10", "number": "CS3200"},
+  { "course": "RS105", "type": "feedback", "name": "Quiz 2", "due": "8 out of 10", "number": "CS3200"},
+  { "course": "RS105", "type": "feedback", "name": "Assignment 1", "due": "90 out of 100", "number": "CS3200"},
+
+  { "course": "RS106", "type": "feedback", "name": "Quiz 1", "due": "9 out of 10", "number": "CS4550"},
+  { "course": "RS106", "type": "feedback", "name": "Quiz 2", "due": "10 out of 10", "number": "CS4550"},
+  { "course": "RS106", "type": "feedback", "name": "Assignment 1", "due": "88 out of 100", "number": "CS4550"},
+
+  { "course": "RS107", "type": "feedback", "name": "Quiz 1", "due": "6 out of 10", "number": "CS3800"},
+  { "course": "RS107", "type": "feedback", "name": "Quiz 2", "due": "9 out of 10", "number": "CS3800"},
+  { "course": "RS107", "type": "feedback", "name": "Assignment 1", "due": "92 out of 100", "number": "CS3800"}
+
+]
