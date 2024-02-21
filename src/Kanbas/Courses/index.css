@@ -20,3 +20,8 @@
     margin-right: 10px;
     font-size: xx-large;
 }
+
+.module-position {
+    left: 300px;
+    top: 50px;
+}

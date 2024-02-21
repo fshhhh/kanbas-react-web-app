@@ -1,0 +1,41 @@
+.input-icons {
+    position: relative;
+    margin-top: 50px;
+    margin-right: 40px;
+}
+
+.input-icons input {
+    border: thin solid lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 60px;
+    outline: none;
+}
+
+.input-icons input:focus {
+    border: thin solid red;
+}
+
+.input-icons .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.button-right {
+    float: right;
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 0px;
+    margin-left: 10px;
+}
+.button-default {
+    color: grey;
+}
+
+.assignment-modules {
+    margin-right: 40px;
+}

@@ -94,6 +94,11 @@
     color: red;
 }
 
+.breadcrumb-hr {
+    padding-left: 100px;
+    padding-right: 15px;
+}
+
 .breadcrumb-small {
     background-color: black;
     list-style: none;

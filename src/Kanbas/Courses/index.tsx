@@ -5,6 +5,7 @@ import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
 import "./index.css";
 import Home from "./Home";
+import Assignments from "./Assignments";
 function Courses() {
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);
@@ -14,24 +15,29 @@ function Courses() {
 
     return (
         <div>
-            <h1 className='avoid-nav course-bar d-none d-md-block'><HiMiniBars3 className={'padding-right'}/> Course {course?.name} <span className={'black'}> &gt; </span> {currentPage}</h1>
-            <hr className={'avoid-nav course-bar d-none d-md-block'}/>
-            <div className='avoid-nav grey d-none d-md-block'>
-                {courses[0].term}
+            <div className={'d-none d-md-block'}>
+                <div className={'breadcrumb'}>
+                    <h1 className='breadcrumb-bar breadcrumb-bar-red'>
+                        <HiMiniBars3 className={'padding-right'}/> Course {course?.name}
+                        <span className={'black'}> &gt; </span> {currentPage}</h1>
+                </div>
+                <div className={'breadcrumb-hr'}><hr /></div>
+                <div className='grey breadcrumb-hr'>{courses[0].term}</div>
             </div>
+
+
 
             <div className={'d-none d-md-block'}><CourseNavigation /></div>
 
             <div>
-                <div className="overflow-y-scroll position-fixed bottom-0 end-0"
-                    style={{ left: "320px", top: "50px" }} >
+                <div className="overflow-y-scroll position-fixed bottom-0 end-0 module-position">
 
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home/>} />
                         <Route path="Modules" element={<Modules/>} />
                         <Route path="Piazza" element={<h1>Piazza</h1>} />
-                        <Route path="Assignments" element={<h1>Assignments</h1>} />
+                        <Route path="Assignments" element={<Assignments/>} />
                         <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
                         <Route path="Quizzes" element={<h1>Quizzes</h1>} />
                         <Route path="Announcements" element={<h1>Announcements</h1>} />
