@@ -36,7 +36,6 @@ function Assignment4() {
             <ParentStateComponent/>
 
             <ReduxExamples/>
-            <HelloRedux/>
         </div>
     );
 };
