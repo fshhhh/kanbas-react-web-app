@@ -1,0 +1,160 @@
+.wd-navigation {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width: 125px;
+    margin: 0px;
+    margin-left: 100px;
+
+}
+.wd-navigation li {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.wd-navigation li.wd-active {
+    border-left: 2px solid black;
+}
+.wd-navigation li.wd-active a {
+    color: black;
+}
+.wd-navigation a {
+    color: red;
+    text-decoration: none;
+}
+.wd-kanbas-navigation-min {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 50px;
+}
+.wd-kanbas-navigation-min li {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.wd-kanbas-navigation-min a {
+    color: red;
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
+    font-size: x-large;
+}
+.wd-kanbas-navigation-min-icon a i.fas.fa-user-circle {
+    color: lightgrey;
+}
+
+.body {
+    padding: 0;
+    margin: 0;
+}
+
+.big {
+    display: flex;
+    flex-direction: row;
+}
+
+.small1 {
+    width: 5%;
+    height: 70vh;
+    text-align: left;
+}
+
+.small2 {
+    width: 50%;
+    height: 70vh;
+}
+
+.wd-kanbas-navigation-min-icon {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 50px;
+}
+.wd-kanbas-navigation-min-icon li {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+.wd-kanbas-navigation-min-icon a {
+    color: red;
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
+    font-size: x-large;
+}
+
+.wd-kanbas-navigation-min-expand {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 50px;
+}
+.wd-kanbas-navigation-min-expand li {
+    padding-left: 10px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.wd-kanbas-navigation-min-expand a {
+    text-decoration: none;
+    font-size: medium;
+}
+
+.navigation-expand {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+
+}
+.navigation-expand li {
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navigation-expand a {
+    color: red;
+    text-decoration: none;
+}
+
+.navigation-top-bar {
+    background-color: black;
+    list-style: none;
+    padding: 0px;  margin: 0px;
+    width: 100%;
+
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    justify-content: space-between;
+    display: flex;
+}
+
+
+.left {
+    color: white;
+    padding: 25px;
+}
+
+.center {
+    margin: 0 auto;
+    color: white;
+    padding: 25px;
+}
+
+.right {
+    margin-left: auto;
+    color: white;
+    text-decoration: none;
+    padding: 25px;
+
+}

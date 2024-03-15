@@ -42,30 +42,25 @@
     border: 2px solid red}
 
 .button {
-    display: flex;
-    justify-content: flex-end;
-
+    float: right;
     margin-top: 50px;
-    margin-right: 10px;
+    margin-right: 20px;
 
     min-width: 150px;
     min-height: 50px;
 }
 
 .button-padding {
-    padding: 2px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 4px;
-    width: 100px;
-    margin-left: 10px;
-    border: thin solid lightgrey;
+    width: 100px
 }
 
-.button-dropdown {
-    width: 130px;
-    padding: 13px;
+.button-grey {
     border: thin solid lightgrey;
+
 }
 
 .button-course-status {
@@ -94,11 +89,6 @@
     color: red;
 }
 
-.breadcrumb-hr {
-    padding-left: 100px;
-    padding-right: 15px;
-}
-
 .breadcrumb-small {
     background-color: black;
     list-style: none;
@@ -113,34 +103,4 @@
 
 .breadcrumb-small-red {
     color: red;
-}
-
-.input-padding {
-    padding: 2px;
-    padding-left: 8px;
-    padding-right: 8px;
-    border-radius: 4px;
-    width: 200px;
-    margin-bottom: 10px;
-    border: thin solid lightgrey;
-}
-
-.input-container {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.button-container {
-    display: flex;
-}
-
-.margin-top {
-    margin-top: 40px;
 }
