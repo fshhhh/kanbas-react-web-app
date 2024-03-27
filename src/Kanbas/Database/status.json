@@ -1,4 +1,5 @@
-[ { "course": "RS101", "type": "todo", "name": "Lecture 1", "due": "Feb 13 at 3:25pm", "number": "RS4550"},
+[
+  { "course": "RS101", "type": "todo", "name": "Lecture 1", "due": "Feb 13 at 3:25pm", "number": "RS4550"},
   { "course": "RS101", "type": "todo", "name": "Lecture 2", "due": "Feb 16 at 3:25pm", "number": "RS4550"},
   { "course": "RS101", "type": "todo", "name": "Lecture 3", "due": "Feb 20 at 3:25pm", "number": "RS4550"},
 
