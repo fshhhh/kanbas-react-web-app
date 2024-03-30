@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
-import modules from "../../Database/modules.json";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 
@@ -10,17 +9,42 @@ import {
     deleteModule,
     updateModule,
     setModule,
+    setModules,
 } from "../Modules/reducer";
-
+import * as client from "./client";
 import {KanbasState} from "../../store";
 
 function ModuleList() {
     const { courseId } = useParams();
+    useEffect(() => {
+        client.findModulesForCourse(courseId)
+            .then((modules) =>
+                dispatch(setModules(modules))
+            );
+    }, [courseId]);
+
     const moduleList = useSelector((state: KanbasState) =>
         state.modulesReducer.modules);
     const module = useSelector((state: KanbasState) =>
         state.modulesReducer.module);
     const dispatch = useDispatch();
+    const handleAddModule = () => {
+        client.createModule(courseId, module).then((module) => {
+            dispatch(addModule(module));
+        });
+    };
+    const handleDeleteModule = (moduleId: string) => {
+        client.deleteModule(moduleId).then((status) => {
+            dispatch(deleteModule(moduleId));
+        });
+    };
+    const handleUpdateModule = async () => {
+        const status = await client.updateModule(module);
+        dispatch(updateModule(module));
+    };
+
+
+
 
     return (
         <div>
@@ -53,11 +77,10 @@ function ModuleList() {
                     <div className="button-container">
                         <button
                             className="button-padding"
-                            onClick={() => dispatch(addModule({ ...module, course: courseId }))}
-                        >
-                            Add
+                            onClick={handleAddModule}>
+                        Add
                         </button>
-                        <button className="button-padding" onClick={() => dispatch(updateModule(module))}>
+                        <button className="button-padding" onClick={handleUpdateModule}>
                             Update
                         </button>
                     </div>
@@ -78,7 +101,7 @@ function ModuleList() {
                                     Edit
                                 </button>
                                 <button className={"button-padding"}
-                                        onClick={() => dispatch(deleteModule(module._id))}>
+                                        onClick={() => handleDeleteModule(module._id)} >
                                     Delete
                                 </button>
                             </div>
