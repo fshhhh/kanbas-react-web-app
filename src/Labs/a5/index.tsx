@@ -1,7 +1,9 @@
 import WorkingWithArrays from "./WorkingWithArrays";
 import WorkingWithObjects from "./WorkingWithObjects";
 import EncodingParametersInURLs from "./EncodingParametersInURLs";
-
+import axios from 'axios';
+const API_BASE = process.env.REACT_APP_API_BASE;
+const API = `${API_BASE}/a5/welcome`;
 function Assignment5() {
     return (
         <div>
@@ -11,7 +13,7 @@ function Assignment5() {
             <WorkingWithObjects />
             <EncodingParametersInURLs />
             <div className="list-group">
-                <a href="http://localhost:4000/a5/welcome" className="list-group-item">
+                <a href={API} className="list-group-item">
                     Welcome
                 </a>
             </div>
