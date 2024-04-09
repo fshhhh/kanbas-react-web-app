@@ -61,20 +61,21 @@ function ModuleList() {
 
         <ul className="list-group margin-top">
             <li className="list-group-item">
-                <div className="container">
-                    <div className="input-container">
+                <div>
                         <input
-                            className="input-padding"
+                            className="input-padding float-start"
                             value={module.name}
                             onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}
                         />
+                </div>
+                <div>
                         <textarea
-                            className="input-padding"
+                            className="input-padding float-start"
                             value={module.description}
                             onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}
                         />
-                    </div>
-                    <div className="button-container">
+
+                    <div className="button-container float-end">
                         <button
                             className="button-padding"
                             onClick={handleAddModule}>
@@ -84,32 +85,29 @@ function ModuleList() {
                             Update
                         </button>
                     </div>
-                </div>
+                    </div>
             </li>
             {moduleList
                 .filter((module) => module.course === courseId)
                 .map((module, index) => (
-                    <li key={index} className="list-group-item">
-
-
-                        <div className={"container"}>
-                            <h3>{module.name}</h3>
-
+                        <li key={index} className="list-group-item greenbar">
                             <div>
-                                <button className={"button-padding"}
-                                        onClick={() => dispatch(setModule(module))}>
-                                    Edit
-                                </button>
-                                <button className={"button-padding"}
-                                        onClick={() => handleDeleteModule(module._id)} >
-                                    Delete
-                                </button>
+                                <h3>{module.name}</h3>
+                                <div>
+                                    <button className={"button-padding float-end"}
+                                            onClick={() => dispatch(setModule(module))}>
+                                        Edit
+                                    </button>
+                                    <button className={"button-padding float-end"}
+                                            onClick={() => handleDeleteModule(module._id)} >
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <p>{module.description}</p>
-                    </li>
+                            <p>{module.description}</p>
+                        </li>
                 ))}
-        </ul>
+            </ul>
         </div>
 
 

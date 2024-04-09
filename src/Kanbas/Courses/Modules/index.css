@@ -123,6 +123,7 @@
     width: 200px;
     margin-bottom: 10px;
     border: thin solid lightgrey;
+    margin-left: 10px;
 }
 
 .input-container {
@@ -132,15 +133,16 @@
 
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: inline-block;
 }
 
-.button-container {
-    display: flex;
-}
+
 
 .margin-top {
     margin-top: 40px;
+}
+
+.greenbar {
+    border-top: 1px solid lightgray !important;
+    border-left: 3px solid green;
 }
