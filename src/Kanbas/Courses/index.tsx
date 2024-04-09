@@ -8,6 +8,8 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Quizzes from "./Quizzes";
+import QuizDetail from "./Quizzes/quizdetail";
 function Courses() {
     const { courseId } = useParams();
     const COURSES_API = "http://localhost:4000/api/courses";
@@ -52,7 +54,8 @@ function Courses() {
                         <Route path="Piazza" element={<h1>Piazza</h1>} />
                         <Route path="Assignments" element={<Assignments/>} />
                         <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
-                        <Route path="Quizzes" element={<h1>Quizzes</h1>} />
+                        <Route path="Quizzes" element={<Quizzes/>} />
+                        <Route path="Quizzes/quizdetail" element={<QuizDetail/>} />
                         <Route path="Announcements" element={<h1>Announcements</h1>} />
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Files" element={<h1>Files</h1>} />
