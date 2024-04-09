@@ -1,0 +1,26 @@
+.avoid-nav {
+    margin-left: 100px;
+}
+
+.wd-margin-bottom {
+    margin-bottom: 10px;
+}
+
+.button-dash {
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 6px;
+    width: 100px;
+    margin-right: 10px;
+    border: thin solid lightgrey;
+    background-color: white;
+}
+
+.button-dash:hover {
+    background-color: lightgoldenrodyellow;
+}
+
+.button-course {
+    margin-right: 10px;
+}

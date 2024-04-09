@@ -1,0 +1,106 @@
+.wd-modules,
+.wd-modules * {
+    border-radius: 0%;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wd-modules {
+    margin: 5px;
+    margin-top: 100px;
+    margin-right: 10px;
+}
+
+.wd-modules > li {
+    background-color: white;
+    border: 1px solid lightgray !important;
+    border-left: none !important;
+}
+
+.wd-modules > li > div {
+    padding: 15px;
+    border-left: 1px solid lightgray !important;
+}
+
+.wd-modules > li > ul > li {
+    padding: 15px;
+    border-top: 1px solid lightgray !important;
+    border-left: 3px solid green;
+}
+
+.wd-modules > li {
+    margin-bottom: 40px;
+}
+
+.wd-buttons {
+    margin-bottom: 20px;
+}
+
+.wd-fg-color-red {
+    background-color: red;
+    border: 2px solid red}
+
+.button {
+    float: right;
+    margin-top: 50px;
+    margin-right: 20px;
+
+    min-width: 150px;
+    min-height: 50px;
+}
+
+.button-padding {
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    width: 100px
+}
+
+.button-grey {
+    border: thin solid lightgrey;
+
+}
+
+.button-course-status {
+    margin-bottom: 10px;
+    width: 230px;
+    text-align: left;
+}
+
+.breadcrumb {
+    background-color: white;
+    list-style: none;
+    padding: 0px;  margin: 0px;
+    width: 100%;
+
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+}
+.breadcrumb-bar {
+    font-size: large;
+    padding-left: 120px;
+    padding-top: 25px;
+}
+.breadcrumb-bar-red {
+    color: red;
+}
+
+.breadcrumb-small {
+    background-color: black;
+    list-style: none;
+    padding: 0px;  margin: 0px;
+    width: 100%;
+
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+}
+
+.breadcrumb-small-red {
+    color: red;
+}

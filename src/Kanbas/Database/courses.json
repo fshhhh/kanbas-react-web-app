@@ -1,0 +1,15 @@
+[
+  { "_id": "RS101", "name": "Rocket Propulsion", "number": "RS4550", "startDate": "2023-01-10",
+  "endDate": "2023-05-15", "image": "rocket-propulsion.png", "term": "Spring 2023" },
+  { "_id": "RS102", "name": "ENG Aerodynamics", "number": "RS4560", "startDate": "2023-01-10",
+    "endDate": "2023-05-15", "image": "aerodynamics.png", "term": "Spring 2023"  },
+  { "_id": "RS103", "name": "ENG Spacecraft Design", "number": "RS4570", "startDate": "2023-01-10",
+    "endDate": "2023-05-15", "image": "spaceship-design.png" , "term": "Spring 2023" },
+  { "_id": "RS104", "name": "Object-Oriented Design", "number": "CS3500", "startDate": "2023-01-10",
+    "endDate": "2023-05-15", "image": "circuits.png", "term": "Spring 2023"  },
+  { "_id": "RS105", "name": "Database Design", "number": "CS3200", "startDate": "2023-01-10",
+    "endDate": "2023-05-15", "image": "hardware.png", "term": "Spring 2023"  },
+  { "_id": "RS106", "name": "Web Development", "number": "CS4550", "startDate": "2023-01-10",
+    "endDate": "2023-05-15", "image": "webdev.png", "term": "Spring 2023"  },
+  { "_id": "RS107", "name": "Theory of Computation", "number": "CS3800", "startDate": "2023-01-10",
+    "endDate": "2023-05-15", "image": "theory.png", "term": "Spring 2023"  }]

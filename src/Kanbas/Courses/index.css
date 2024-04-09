@@ -1,0 +1,27 @@
+.avoid-nav {
+    margin-left: 100px;
+}
+
+.course-bar {
+    color: red;
+    font-size: large;
+    padding-top: 25px;
+}
+
+.grey {
+    color: grey;
+}
+
+.black {
+    color: black;
+}
+
+.padding-right {
+    margin-right: 10px;
+    font-size: xx-large;
+}
+
+.module-position {
+    left: 300px;
+    top: 50px;
+}
