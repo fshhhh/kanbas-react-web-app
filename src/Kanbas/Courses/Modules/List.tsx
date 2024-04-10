@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -27,6 +26,7 @@ function ModuleList() {
         state.modulesReducer.modules);
     const module = useSelector((state: KanbasState) =>
         state.modulesReducer.module);
+
     const dispatch = useDispatch();
     const handleAddModule = () => {
         client.createModule(courseId, module).then((module) => {

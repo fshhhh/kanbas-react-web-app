@@ -5,8 +5,9 @@ import quizzesReducer from "../Courses/Quizzes/reducer";
 export interface KanbasState {
     quizzesReducer: {
         quizzes: any[];
-        currentQuiz: any;
-    }; // Define the shape of the quizzesReducer state
+        quiz: any;
+    };
+
     modulesReducer: {
         modules: any[];
         module: any;
@@ -16,7 +17,7 @@ export interface KanbasState {
 const store = configureStore({
     reducer: {
         modulesReducer,
-        quizzesReducer, // Add the quizzesReducer to the reducer object
+        quizzesReducer,
     },
 });
 

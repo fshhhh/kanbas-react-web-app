@@ -1,16 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    quizzes: [] as { _id: string; title: string; questions: { question: string; options: string[]; answer: string }[] }[],
-    currentQuiz: {
-        title: "New Quiz",
-        questions: [
-            {
-                question: "What is the capital of France?",
-                options: ["Paris", "London", "Berlin", "Madrid"],
-                answer: "Paris",
-            },
-        ],
+    quizzes: [] as { id: string; title: string; }[],
+    quiz: {
+        id: 1,
+        quizType: 'Graded Quiz',
+        points: 0,
+        assignmentGroup: 'QUIZZES',
+        shuffleAnswers: "Yes",
+        timeLimit: "20 Minutes",
+        multipleAttempts: "No",
+        showCorrectAnswers: "Immediately",
+        accessCode: '',
+        oneQuestionAtATime: "Yes",
+        webcamRequired: "No",
+        lockQuestionsAfterAnswering: "No",
+        dueDate: "Sep 21 at 1pm",
+        availableDate: "Sep 21 at 11:40am",
+        untilDate: "Sep 21 at 1pm",
+        for: "Everyone",
+        requireRespondus: "No",
+        requireViewQuizResult: "No",
+        viewResponse: "Always"
+
     },
 };
 
@@ -25,22 +37,25 @@ const quizzesSlice = createSlice({
             state.quizzes = [action.payload, ...state.quizzes];
         },
         deleteQuiz: (state, action) => {
-            state.quizzes = state.quizzes.filter((quiz) => quiz._id !== action.payload);
+            state.quizzes = state.quizzes.filter((quiz) =>
+                quiz.id !== action.payload);
         },
         updateQuiz: (state, action) => {
             state.quizzes = state.quizzes.map((quiz) => {
-                if (quiz._id === action.payload._id) {
+                if (quiz.id === action.payload.id) {
                     return action.payload;
                 } else {
                     return quiz;
                 }
             });
         },
-        setCurrentQuiz: (state, action) => {
-            state.currentQuiz = action.payload;
+        setQuiz: (state, action) => {
+            state.quiz = action.payload;
         },
     },
 });
 
-export const { setQuizzes, addQuiz, deleteQuiz, updateQuiz, setCurrentQuiz } = quizzesSlice.actions;
+export const { setQuizzes, addQuiz,
+    deleteQuiz, updateQuiz,
+    setQuiz } = quizzesSlice.actions;
 export default quizzesSlice.reducer;

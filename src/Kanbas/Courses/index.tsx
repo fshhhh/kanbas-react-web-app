@@ -10,9 +10,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Quizzes from "./Quizzes";
 import QuizDetail from "./Quizzes/quizdetail";
+import QuizPreview from "./Quizzes/quizpreview";
+import QuizEdit from "./Quizzes/quizedit";
+const API_BASE = process.env.REACT_APP_API_BASE;
 function Courses() {
     const { courseId } = useParams();
-    const COURSES_API = "http://localhost:4000/api/courses";
+    const COURSES_API = `${API_BASE}/api/courses`;
     const [course, setCourse] = useState<any>({ _id: "" });
     const findCourseById = async (courseId?: string) => {
         const response = await axios.get(
@@ -56,6 +59,8 @@ function Courses() {
                         <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
                         <Route path="Quizzes" element={<Quizzes/>} />
                         <Route path="Quizzes/quizdetail" element={<QuizDetail/>} />
+                        <Route path="Quizzes/quizpreview" element={<QuizPreview/>} />
+                        <Route path="Quizzes/quizedit" element={<QuizEdit/>} />
                         <Route path="Announcements" element={<h1>Announcements</h1>} />
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Files" element={<h1>Files</h1>} />
