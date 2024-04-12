@@ -12,11 +12,11 @@ import {
     updateQuiz,
     setQuiz,
     setQuizzes,
-} from "../Quizzes/reducer";
+} from "./reducer";
 import {addModule, deleteModule, updateModule} from "../Modules/reducer";
 import {Link, useLocation} from "react-router-dom";
 
-function QuizDetail() {
+function Quizdetail() {
     const location = useLocation();
     const currentUrl = location.pathname;
     const quizPreviewUrl = `${currentUrl}/quizpreview`;
@@ -57,7 +57,7 @@ function QuizDetail() {
                     <button className="button-padding">Preview</button>
                 </Link>
                 <Link to={quizEditUrl}>
-                <button type="button" className="button-padding"><FaPencil /> Edit</button>
+                    <button type="button" className="button-padding"><FaPencil /> Edit</button>
                 </Link>
 
                 <button type="button" className="button-padding-small"><FaEllipsisV /></button>
@@ -240,4 +240,4 @@ function QuizDetail() {
     );
 };
 
-export default QuizDetail;
+export default Quizdetail;

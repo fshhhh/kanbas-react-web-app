@@ -5,8 +5,8 @@ const QUIZZES_API = `${API_BASE}/api/quizzes`;
 
 
 export const updateQuiz = async (quiz: { id: any; }) => {
-    const response = await axios.
-    put(`${QUIZZES_API}/${quiz.id}`, quiz);
+    const response = await axios
+        .put(`${QUIZZES_API}/${quiz.id}`, quiz);
     return response.data;
 };
 export const deleteQuiz = async (quizId: any) => {

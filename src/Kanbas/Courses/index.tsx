@@ -9,9 +9,10 @@ import Assignments from "./Assignments";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Quizzes from "./Quizzes";
-import QuizDetail from "./Quizzes/quizdetail";
+import Quizdetail from "./Quizzes/quizdetail";
 import QuizPreview from "./Quizzes/quizpreview";
 import QuizEdit from "./Quizzes/quizedit";
+import QuizQuestions from "./Quizzes/quizquestions";
 const API_BASE = process.env.REACT_APP_API_BASE;
 function Courses() {
     const { courseId } = useParams();
@@ -48,8 +49,9 @@ function Courses() {
             <div className={'d-none d-md-block'}><CourseNavigation /></div>
 
             <div>
+                {/*TODO: the position-fixed element here looks a little weird when scrolling, but since
+                the code is kinda written around it being fixed we'll work on it later*/}
                 <div className="overflow-y-scroll position-fixed bottom-0 end-0 module-position">
-
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home/>} />
@@ -58,9 +60,10 @@ function Courses() {
                         <Route path="Assignments" element={<Assignments/>} />
                         <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
                         <Route path="Quizzes" element={<Quizzes/>} />
-                        <Route path="Quizzes/quizdetail" element={<QuizDetail/>} />
+                        <Route path="Quizzes/quizdetail" element={<Quizdetail/>} />
                         <Route path="Quizzes/quizpreview" element={<QuizPreview/>} />
                         <Route path="Quizzes/quizedit" element={<QuizEdit/>} />
+                        <Route path={"Quizzes/quizquestions"} element={<QuizQuestions/>} />
                         <Route path="Announcements" element={<h1>Announcements</h1>} />
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Files" element={<h1>Files</h1>} />

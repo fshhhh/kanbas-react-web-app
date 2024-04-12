@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
-import {addQuiz, deleteQuiz, setQuiz, setQuizzes, updateQuiz} from "../Quizzes/reducer";
-import React, {useEffect} from "react";
+import {addQuiz, deleteQuiz, setQuiz, setQuizzes, updateQuiz} from "./reducer";
+import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../store";
 import {Link, useLocation} from "react-router-dom";
@@ -9,6 +9,7 @@ import * as client from "./client";
 import {FaCheckCircle, FaEllipsisV, FaPlane, FaRocket, FaStopCircle} from "react-icons/fa";
 
 function Quizzes() {
+    const [context, setContext] = useState(false);
     const location = useLocation();
     const currentUrl = location.pathname;
     const quizDetailUrl = `${currentUrl}/quizdetail`;
@@ -21,7 +22,7 @@ function Quizzes() {
             .then((quizzes) =>
                 dispatch(setQuizzes(quizzes))
             );
-    }, [courseId]);
+    }, [courseId, dispatch]);
 
     const quizList = useSelector((state: KanbasState) =>
         state.quizzesReducer.quizzes);
@@ -50,6 +51,10 @@ function Quizzes() {
 
     const currentDate = new Date();
 
+    const toggleContext = () => {
+        setContext(!context);
+    }
+
     return (
         <div>
             <div className={"button"}>
@@ -70,17 +75,28 @@ function Quizzes() {
                     .map((quiz, index) => (
                         <li key={index} className="list-group-item greenbar">
                             <div>
-
                                 <FaRocket />
+                                {/*the three dots context menu*/}
+                                <button style={{float: "right"}} onClick={toggleContext}>
+                                    <FaEllipsisV/>
+                                </button>
+                                {context && (
+                                    <div className="button">
+                                        <button><Link to={quizDetailUrl}>Edit</Link></button>
+                                        <button onClick={() => handleDeleteQuiz(quiz.name)}>Delete</button>
+                                        {quiz.published ? <button>Unpublish</button> : <button>Publish</button>}
+                                    </div>
+                                )}
+                                {/*the three dots context menu*/}
+                                {/*TODO: make the context menu appear on a different z-axis maybe?*/}
                                 <h3>Q{quiz.id} - {quiz.title}</h3>
                                 <div> {availableDate < currentDate ? 'Available' :
                                     <span><span className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
                                     <span className={"bold"}> Due </span> {quiz.dueDate}
                                     <span className={"green"}> {quiz.published ? <FaCheckCircle/> : <FaStopCircle/>}</span>
-
                                 </div>
                             </div>
-                            <p>Number of Questions: XXX</p>
+                            <p>Number of Questions: {quiz.questions}</p>
                         </li>
                     ))}
             </ul>

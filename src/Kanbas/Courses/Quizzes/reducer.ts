@@ -21,8 +21,8 @@ const initialState = {
         for: "Everyone",
         requireRespondus: "No",
         requireViewQuizResult: "No",
-        viewResponse: "Always"
-
+        viewResponse: "Always",
+        questions: 0
     },
 };
 
