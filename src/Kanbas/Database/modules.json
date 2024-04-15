@@ -106,7 +106,7 @@
 
 
   {
-    "_id": "M104",
+    "_id": "M105",
     "name": "Week 1",
     "description": "Basic principles of OOD.",
     "course": "RS104",
@@ -115,19 +115,19 @@
         "_id": "L401",
         "name": "Lecture 1",
         "description": "Object Class",
-        "module": "M104"
+        "module": "M105"
       },
       {
         "_id": "L402",
         "name": "Lecture 2",
         "description": "Inheritance and Abstract",
-        "module": "M104"
+        "module": "M105"
       }
     ]
   },
 
   {
-    "_id": "M105",
+    "_id": "M106",
     "name": "Resources",
     "description": "Resources for Database Design",
     "course": "RS105",
@@ -136,24 +136,24 @@
         "_id": "L501",
         "name": "Office Hours",
         "description": "schedule",
-        "module": "M105"
+        "module": "M106"
       },
       {
         "_id": "L502",
         "name": "Syllabus",
         "description": "read here",
-        "module": "M105"
+        "module": "M106"
       },
       {
         "_id": "L503",
         "name": "Text Book",
         "description": "good background information",
-        "module": "M105"
+        "module": "M106"
       }
     ]
   },
   {
-    "_id": "M105",
+    "_id": "M107",
     "name": "Week 1",
     "description": "Basic principles of Database.",
     "course": "RS105",
@@ -162,14 +162,14 @@
         "_id": "L501",
         "name": "Lecture 1",
         "description": "Intro",
-        "module": "M105"
+        "module": "M107"
       }
     ]
   },
 
 
   {
-    "_id": "M106",
+    "_id": "M108",
     "name": "Welcome to Webdev",
     "description": "Resources for Webdev",
     "course": "RS106",
@@ -178,26 +178,26 @@
         "_id": "L601",
         "name": "HTML",
         "description": "HTML",
-        "module": "M106"
+        "module": "M108"
       },
       {
         "_id": "L602",
         "name": "CSS",
         "description": "CSS",
-        "module": "M106"
+        "module": "M108"
       },
       {
         "_id": "L603",
         "name": "Java Script",
         "description": "JS",
-        "module": "M106"
+        "module": "M108"
       }
     ]
   },
 
 
   {
-    "_id": "M107",
+    "_id": "M109",
     "name": "Welcome to Theory of Computation",
     "description": "Resources for Webdev",
     "course": "RS107",
@@ -206,13 +206,13 @@
         "_id": "L701",
         "name": "Number representation",
         "description": "Binary",
-        "module": "M107"
+        "module": "M109"
       },
       {
         "_id": "L702",
         "name": "Pumping numbers",
         "description": "minimum pumping length",
-        "module": "M107"
+        "module": "M109"
       }
     ]
   },
