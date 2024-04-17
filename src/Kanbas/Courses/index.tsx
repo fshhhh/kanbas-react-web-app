@@ -26,7 +26,9 @@ function Courses() {
     };
 
     const { pathname } = useLocation();
+
     const currentPage = pathname.split('/').pop();
+
     useEffect(() => {
         findCourseById(courseId);
     }, [courseId]);
@@ -49,8 +51,6 @@ function Courses() {
             <div className={'d-none d-md-block'}><CourseNavigation /></div>
 
             <div>
-                {/*TODO: the position-fixed element here looks a little weird when scrolling, but since
-                the code is kinda written around it being fixed we'll work on it later*/}
                 <div className="overflow-y-scroll position-fixed bottom-0 end-0 module-position">
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
