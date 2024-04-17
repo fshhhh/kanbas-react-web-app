@@ -9,9 +9,11 @@ export default function Profile() {
         const account = await client.profile();
         setProfile(account);
     };
+
     useEffect(() => {
         fetchProfile();
     }, []);
+
     const save = async () => {
         await client.updateUser(profile);
     };
