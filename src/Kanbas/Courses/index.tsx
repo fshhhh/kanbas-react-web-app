@@ -14,6 +14,8 @@ import QuizPreview from "./Quizzes/quizpreview";
 import QuizEdit from "./Quizzes/quizedit";
 import QuizQuestionsEditor from "./Quizzes/Editors/quizquestionseditor";
 import QuizDetailsEditor from "./Quizzes/Editors/quizdetailseditor";
+import MCQEditor from "./Quizzes/Editors/mcqeditor";
+import QuestionMaker from "./Quizzes/Editors/questionmaker";
 const API_BASE = process.env.REACT_APP_API_BASE;
 function Courses() {
     const { courseId } = useParams();
@@ -47,28 +49,27 @@ function Courses() {
                 <div className='grey breadcrumb-hr'>{courses[0].term}</div>
             </div>
 
-
-
             <div className={'d-none d-md-block'}><CourseNavigation /></div>
 
             <div>
                 <div className="overflow-y-scroll position-absolute bottom-0 end-0 module-position">
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
-                        <Route path="Home" element={<Home/>} />
-                        <Route path="Modules" element={<Modules/>} />
-                        <Route path="Piazza" element={<h1>Piazza</h1>} />
-                        <Route path="Assignments" element={<Assignments/>} />
-                        <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
-                        <Route path="Quizzes" element={<Quizzes/>} />
-                        <Route path="Quizzes/quizdetail" element={<Quizdetail/>} />
-                        <Route path="Quizzes/quizdetail/quizpreview" element={<QuizPreview/>} />
-                        <Route path="Quizzes/quizdetail/quizedit" element={<QuizEdit/>} />
-                        <Route path={"Quizzes/quizdetail/quizedit/quizquestionseditor"} element={<QuizQuestionsEditor/>} />
-                        <Route path={"Quizzes/quizdetail/quizedit/quizdetailseditor"} element={<QuizDetailsEditor/>} />
-                        <Route path="Announcements" element={<h1>Announcements</h1>} />
-                        <Route path="People" element={<h1>People</h1>} />
-                        <Route path="Files" element={<h1>Files</h1>} />
+                        <Route path="/Home" element={<Home/>} />
+                        <Route path="/Modules" element={<Modules/>} />
+                        <Route path="/Piazza" element={<h1>Piazza</h1>} />
+                        <Route path="/Assignments" element={<Assignments/>} />
+                        <Route path="/Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
+                        <Route path="/Quizzes" element={<Quizzes/>} />
+                        <Route path="/Quizzes/quizdetail" element={<Quizdetail/>} />
+                        <Route path="/Quizzes/quizdetail/quizpreview" element={<QuizPreview/>} />
+                        <Route path="/Quizzes/quizdetail/quizedit" element={<QuizEdit/>} />
+                        <Route path="/Quizzes/quizdetail/quizedit/quizquestionseditor" element={<QuizQuestionsEditor/>} />
+                        <Route path="/Quizzes/quizdetail/quizedit/quizdetailseditor" element={<QuizDetailsEditor/>} />
+                        <Route path={"/Quizzes/quizdetail/quizedit/quizquestionseditor/questionmaker"} element={<QuestionMaker/>}/>
+                        <Route path="/Announcements" element={<h1>Announcements</h1>} />
+                        <Route path="/People" element={<h1>People</h1>} />
+                        <Route path="/Files" element={<h1>Files</h1>} />
                     </Routes>
                 </div>
 

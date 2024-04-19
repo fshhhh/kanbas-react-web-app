@@ -13,12 +13,16 @@ function QuizQuestionsEditor() {
                 <Link to={"./quizquestionseditor"} style={{color: "red"}}
                       className={`nav-link ${pathname.includes("quizquestionseditor") ? "active" : ""}`}>Questions</Link>
             </nav>
-            <div>
-                <button className={"button"}>
-                    <button>+ New Question</button>
-                    <button>+ New Question Group</button>
-                    <button><FaMagnifyingGlass/>Find Questions</button>
-                </button>
+            {/*TODO: question.map or whatever to display the questions*/}
+            <button>
+                <Link to={"./questionmaker"}>
+                    + New Question
+                </Link>
+            </button>
+            <div className={"btn-toolbar"}>
+                <button className={"btn btn-primary"}>Save</button>
+                <button className={"btn btn-success"}>Save and Publish</button>
+                <button className={"btn btn-danger"}>Cancel</button>
             </div>
         </div>
     )

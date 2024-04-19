@@ -9,7 +9,7 @@ import {
     updateModule,
     setModule,
     setModules,
-} from "../Modules/reducer";
+} from "./reducer";
 import * as client from "./client";
 import {KanbasState} from "../../store";
 
