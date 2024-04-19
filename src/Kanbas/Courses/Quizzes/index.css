@@ -42,6 +42,98 @@
 .green {
     color: green;
 }
+.red {
+    color: red;
+}
 .bold {
     font-weight: bold;
+}
+.place {
+    margin-top: 50px;
+    margin-right: 10px;
+}
+.preview {
+    background-color: pink;
+    color: red;
+    padding: 10px;
+    padding-left: 15px;
+}
+
+.margin {
+    margin-bottom: 20px;
+}
+
+.question {
+    border: 1px solid #aaa;
+    background-color: #fff;
+    position: relative;
+    min-height: 50px;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.option {
+    padding: 20px;
+}
+.questionNumber {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.option-text {
+    padding-left: 15px;
+}
+
+.points {
+    padding-right: 20px;
+    padding-top: 20px;
+    color: dimgray;
+}
+
+.but {
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+    border: thin solid lightgrey;
+}
+
+.button-padding-long {
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    width: 140px;
+    height: 35px;
+    margin: 10px;
+    border: thin solid lightgrey;
+}
+
+.saved {
+    margin: 15px;
+    color: dimgray;
+}
+
+.editing {
+    margin-left: 15px;
+    color: dimgray;
+    text-decoration: none;
+    float: left;
+}
+
+.question-edit {
+    border: 1px solid lightgray;
+    background-color: #fff;
+    position: relative;
+    min-height: 50px;
+    width: 100%;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+.margin-left {
+    margin-left: 30px;
+}
+.grey {
+    color: lightgrey;
 }

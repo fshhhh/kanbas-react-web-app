@@ -4,6 +4,7 @@ const initialState = {
     quizzes: [] as { id: string; title: string; }[],
     quiz: {
         id: 1,
+        title: 1,
         quizType: 'Graded Quiz',
         points: 0,
         assignmentGroup: 'QUIZZES',
@@ -22,7 +23,30 @@ const initialState = {
         requireRespondus: "No",
         requireViewQuizResult: "No",
         viewResponse: "Always",
-        questions: 0
+        questions: 0,
+        questionList: [
+            {
+                _id: "Q101",
+                name: "This is the first question?",
+                type: "truefalse",
+                answer: "true",
+                point: 1
+            },
+            {
+                _id: "Q102",
+                name: "This is the last question?",
+                type: "truefalse",
+                answer: "false",
+                point: 100
+            },
+            {
+                _id: "Q103",
+                name: "This is the not question?",
+                type: "truefalse",
+                answer: "false",
+                point: 4
+            }
+        ]
     },
 };
 

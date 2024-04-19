@@ -20,7 +20,7 @@ function Quizdetail() {
     const location = useLocation();
     const currentUrl = location.pathname;
     const quizPreviewUrl = `${currentUrl}/quizpreview`;
-    const quizEditUrl = `${currentUrl}/quizedit`;
+    const quizEditUrl = `${currentUrl}/quizedit/quizdetailseditor`;
 
     const { courseId } = useParams();
     const dispatch = useDispatch();
@@ -66,7 +66,7 @@ function Quizdetail() {
 
 
             <div>
-                <h2>Q{quiz.id}</h2>
+                <h2>Q{quiz.title}</h2>
 
                 <div>
 
