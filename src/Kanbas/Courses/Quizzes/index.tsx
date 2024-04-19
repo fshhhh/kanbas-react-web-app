@@ -75,7 +75,7 @@ function Quizzes() {
                     .map((quiz, index) => (
                         <li key={index} className="list-group-item greenbar">
                             <div>
-                                <FaRocket />
+                                <FaRocket/>
                                 {/*the three dots context menu*/}
                                 <button style={{float: "right"}} onClick={toggleContext}>
                                     <FaEllipsisV/>
@@ -91,12 +91,15 @@ function Quizzes() {
                                 {/*TODO: make the context menu appear on a different z-axis maybe?*/}
                                 <h3>Q{quiz.id} - {quiz.title}</h3>
                                 <div> {availableDate < currentDate ? 'Available' :
-                                    <span><span className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
+                                    <span><span
+                                        className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
                                     <span className={"bold"}> Due </span> {quiz.dueDate}
-                                    <span className={"green"}> {quiz.published ? <FaCheckCircle/> : <FaStopCircle/>}</span>
+                                    <span> {quiz.published ? <FaCheckCircle className={"green"}/> :
+                                        <FaStopCircle className={"red"}/>}</span>
                                 </div>
                             </div>
-                            <p>Number of Questions: {quiz.questions}</p>
+                            <p>{quiz.points}pts</p>
+                            <p>{quiz.questions} Questions</p>
                         </li>
                     ))}
             </ul>

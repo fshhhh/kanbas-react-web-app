@@ -51,7 +51,7 @@ function Courses() {
             <div className={'d-none d-md-block'}><CourseNavigation /></div>
 
             <div>
-                <div className="overflow-y-scroll position-fixed bottom-0 end-0 module-position">
+                <div className="overflow-y-scroll position-absolute bottom-0 end-0 module-position">
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home/>} />
@@ -61,8 +61,8 @@ function Courses() {
                         <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
                         <Route path="Quizzes" element={<Quizzes/>} />
                         <Route path="Quizzes/quizdetail" element={<Quizdetail/>} />
-                        <Route path="Quizzes/quizpreview" element={<QuizPreview/>} />
-                        <Route path="Quizzes/quizedit" element={<QuizEdit/>} />
+                        <Route path="Quizzes/quizdetail/quizpreview" element={<QuizPreview/>} />
+                        <Route path="Quizzes/quizdetail/quizedit" element={<QuizEdit/>} />
                         <Route path={"Quizzes/quizquestions"} element={<QuizQuestions/>} />
                         <Route path="Announcements" element={<h1>Announcements</h1>} />
                         <Route path="People" element={<h1>People</h1>} />

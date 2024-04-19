@@ -48,7 +48,7 @@ function Dashboard(
                                             {course.name}
                                         </Link>
                                         <p className="card-text">{course.name}</p>
-                                        <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary button-course">
+                                        <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-success button-course">
                                             Go </Link>
 
                                         <button className="btn btn-primary button-course"
@@ -56,7 +56,7 @@ function Dashboard(
                                                     event.preventDefault();
                                                     setCourse(course);}}> Edit </button>
 
-                                        <button className="btn btn-primary button-course"
+                                        <button className="btn btn-danger button-course"
                                                 onClick={(event) => {
                                                     event.preventDefault();
                                                     deleteCourse(course._id);}}> Delete </button>
