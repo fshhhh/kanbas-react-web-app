@@ -24,6 +24,12 @@ function QuizDetailsEditor() {
     const {quizId} = useParams(); //will be needed once we incorporate the id into the url
     const { pathname } = useLocation();
 
+    const location = useLocation();
+    const currentUrl = location.pathname;
+    const urlWithoutLast10Chars = currentUrl.slice(0, -18);
+    const quizEditUrl = `${urlWithoutLast10Chars}/quizquestionseditor`;
+    const quizEditUrl2 = `${urlWithoutLast10Chars}/quizdetailseditor`;
+
     const handleDueDateChange = (e: any) => {
         const selectedDate = new Date(e.target.value); // Convert input value to Date object
         setDueDate(selectedDate); // Update state with selected date
@@ -44,9 +50,9 @@ function QuizDetailsEditor() {
     return (
         <div>
             <nav className="nav nav-tabs" style={{marginTop: "40px"}}>
-                <Link to="./quizdetailseditor" style={{color: "red"}}
+                <Link to={quizEditUrl2} style={{color: "red"}}
                       className={`nav-link ${pathname.includes("quizdetailseditor") ? "active" : ""}`}>Details</Link>
-                <Link to={"./quizquestionseditor"} style={{color: "red"}}
+                <Link to={quizEditUrl} style={{color: "red"}}
                       className={`nav-link ${pathname.includes("quizquestionseditor") ? "active" : ""}`}>Questions</Link>
             </nav>
 
