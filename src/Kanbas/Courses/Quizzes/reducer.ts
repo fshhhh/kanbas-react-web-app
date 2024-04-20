@@ -6,6 +6,7 @@ const initialState = {
         id: 1,
         title: 1,
         quizType: 'Graded Quiz',
+        published: false,
         points: 0,
         assignmentGroup: 'QUIZZES',
         shuffleAnswers: "Yes",
