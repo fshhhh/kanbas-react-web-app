@@ -13,14 +13,13 @@ import {
     setQuiz,
     setQuizzes,
 } from "./reducer";
-import {addModule, deleteModule, updateModule} from "../Modules/reducer";
 import {Link, useLocation} from "react-router-dom";
 
 function Quizdetail() {
     const location = useLocation();
     const currentUrl = location.pathname;
-    const quizPreviewUrl = `${currentUrl}/quizpreview/`;
-    const quizEditUrl = `${currentUrl}/quizedit/quizdetailseditor/`;
+    const quizPreviewUrl = `${currentUrl}quizpreview/`;
+    const quizEditUrl = `${currentUrl}quizedit/quizdetailseditor/`;
 
     const { courseId } = useParams();
     const dispatch = useDispatch();

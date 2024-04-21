@@ -7,7 +7,7 @@ const api = axios.create({
 });
 
 export interface User { _id: string; username: string; password: string; role: string;
-    firstName: string, lastName: string };
+    firstName: string, lastName: string }
 export const signin = async (credentials: User) => {
     const response = await api.post( `${USERS_API}/signin`, credentials );
     return response.data;

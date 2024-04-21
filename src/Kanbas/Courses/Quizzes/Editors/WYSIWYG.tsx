@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 
 interface WYSIWYGEditorProps {
     value: string;
-    onChange: (value: string) => void;
+    onChange: (value: any) => void;
 }
 
 const WYSIWYGEditor: React.FC<WYSIWYGEditorProps> = ({ value, onChange }) => {

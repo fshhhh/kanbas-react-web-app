@@ -6,13 +6,14 @@ import { KanbasState } from "../../store";
 import {Link, useLocation} from "react-router-dom";
 import "./index.css";
 import * as client from "./client";
+import {Quiz} from "./client";
 import {FaCheckCircle, FaEllipsisV, FaPlane, FaRocket, FaStopCircle} from "react-icons/fa";
 
 function Quizzes() {
     const [context, setContext] = useState(false);
     const location = useLocation();
     const currentUrl = location.pathname;
-    const quizDetailUrl = `${currentUrl}/quizdetail`;
+    const quizDetailUrl = `${currentUrl}/quizdetail/`;
 
     const { courseId } = useParams();
     const dispatch = useDispatch();
@@ -35,11 +36,21 @@ function Quizzes() {
         });
     };
 
-    const handleDeleteQuiz = (quizId: string) => {
-        client.deleteQuiz(quizId).then((status) => {
-            dispatch(deleteQuiz(quizId));
-        });
-    };
+    const handleDeleteQuiz = async (quiz: Quiz) => {
+        try {
+            await client.deleteQuiz(quiz);
+            dispatch(deleteQuiz(quiz._id));
+            // setQuizzes(quizList.filter((q) => q._id !== quiz._id));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    // const handleDeleteQuiz = (quizId: string) => {
+    //     client.deleteQuiz(quizId).then((status) => {
+    //         dispatch(deleteQuiz(quizId));
+    //     });
+    // };
 
     const handleUpdateQuiz = async () => {
         const status = await client.updateQuiz(quiz);
@@ -77,13 +88,13 @@ function Quizzes() {
                             <div>
                                 <FaRocket />
                                 {/*the three dots context menu*/}
-                                <button style={{float: "right"}} onClick={toggleContext}>
+                                <button style={{float: "right", border: "transparent", backgroundColor: "transparent"}} onClick={toggleContext}>
                                     <FaEllipsisV/>
                                 </button>
                                 {context && (
                                     <div className="button">
                                         <button><Link to={quizDetailUrl}>Edit</Link></button>
-                                        <button onClick={() => handleDeleteQuiz(quiz.name)}>Delete</button>
+                                        <button onClick={() => handleDeleteQuiz(quiz)}>Delete</button>
                                         {quiz.published ? <button>Unpublish</button> : <button>Publish</button>}
                                     </div>
                                 )}
@@ -91,7 +102,8 @@ function Quizzes() {
                                 {/*TODO: make the context menu appear on a different z-axis maybe?*/}
                                 <h3>Q{quiz.id} - {quiz.title}</h3>
                                 <div> {availableDate < currentDate ? 'Available' :
-                                    <span><span className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
+                                    <span><span
+                                        className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
                                     <span className={"bold"}> Due </span> {quiz.dueDate}
                                     <span className={"green"}> {quiz.published ? <FaCheckCircle/> : <FaStopCircle/>}</span>
                                 </div>

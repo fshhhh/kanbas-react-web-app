@@ -8,57 +8,38 @@ function QuizDetailsEditor() {
     const [quizzes, setQuizzes] = useState<Quiz[]>([]);
     const [quiz, setQuiz] = useState<Quiz>({
         _id: "",
+        description: "",
         title: "",
         quizType: "Graded Quiz",
         points: "0",
         assignmentGroup: "QUIZZES",
         shuffleAnswers: "Yes",
         timeLimit: "20 Minutes",
-        multipleAttempts: "No",
-        showCorrectAnswers: "Immediately",
+        multipleAttempts: false,
+        showCorrectAnswers: true,
         accessCode: "",
-        oneQuestionAtATime: "Yes",
-        webcamRequired: "No",
-        lockQuestionsAfterAnswering: "No",
-        dueDate: "Sep 21 at 1pm",
-        availableDate: "Sep 21 at 11:40am",
-        untilDate: "Sep 21 at 1pm",
+        oneQuestionAtATime: true,
+        webcamRequired: false,
+        lockQuestionsAfterAnswering: false,
+        dueDate: new Date(),
+        availableDate: new Date(),
+        untilDate: new Date(),
         for: "Everyone",
-        requireRespondus: "No",
-        requireViewQuizResult: "No",
+        requireRespondus: false,
+        requireViewQuizResult: false,
         viewResponse: "Always",
         published: false,
         course: "",
         questions: "",
-        questionList: {
+        questionList: [{
             id: "",
             name: "",
             type: "",
             answer: "",
-            point: 0
-        }
+            points: 0
+        }]
     });
 
-
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState("");
-    const [quizType, setQuizType] = useState("Graded Quiz");
-    const [points, setPoints] = useState(0);
-    const [assignmentGroup, setAssignmentGroup] = useState("Quizzes");
-    const [shuffleAnswers, setShuffleAnswers] = useState(true);
-    const [timeLimit, setTimeLimit] = useState(20);
-    const [multipleAttempts, setMultipleAttempts] = useState(false);
-    const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
-    const [accessCode, setAccessCode] = useState("");
-    const [oneQuestionAtATime, setOneQuestionAtATime] = useState(true);
-    const [webcamRequired, setWebcamRequired] = useState(false);
-    const [lockQuestionsAfterAnswering, setLockQuestionsAfterAnswering] = useState(false);
-    const [dueDate, setDueDate] = useState(new Date());
-    const [availableDate, setAvailableDate] = useState(new Date());
-    const [untilDate, setUntilDate] = useState(new Date());
-    //TODO: surely there's a better way to do this lmao
-
-    const {quizId} = useParams(); //will be needed once we incorporate the id into the url
     const { pathname } = useLocation();
     const { courseId } = useParams();
 
@@ -67,19 +48,20 @@ function QuizDetailsEditor() {
     const urlWithoutLast10Chars = currentUrl.slice(0, -19);
     const quizEditUrl = `${urlWithoutLast10Chars}/quizquestionseditor/`;
     const quizEditUrl2 = `${urlWithoutLast10Chars}/quizdetailseditor/`;
-    const cancelUrl = currentUrl.slice(0, -27);
+    const saveUrl = currentUrl.slice(0, -27);
+    const cancelUrl = currentUrl.slice(0, -39);
 
     const handleDueDateChange = (e: any) => {
         const selectedDate = new Date(e.target.value); // Convert input value to Date object
-        setDueDate(selectedDate); // Update state with selected date
+        setQuiz({...quiz, dueDate: selectedDate});
     };
     const handleAvailableDateChange = (e: any) => {
         const selectedDate = new Date(e.target.value); // Convert input value to Date object
-        setAvailableDate(selectedDate); // Update state with selected date
+        setQuiz({...quiz, availableDate: selectedDate});
     };
     const handleUntilDateChange = (e: any) => {
         const selectedDate = new Date(e.target.value); // Convert input value to Date object
-        setUntilDate(selectedDate); // Update state with selected date
+        setQuiz({...quiz, untilDate: selectedDate});
     };
 
     function formattedDate(date: Date) {
@@ -109,17 +91,18 @@ function QuizDetailsEditor() {
             </nav>
 
             <div className={"mb-3"}>
-                <input type="text" className="form-control" id="title" value={title} placeholder={"New Title"}
-                       onChange={(e) => setTitle(e.target.value)}/>
+                <input type="text" className="form-control" id="title" value={quiz.title} placeholder={"New Title"}
+                       onChange={(e) => setQuiz({...quiz, title: e.target.value})}/>
             </div>
             <div className="mb-3">
                 <label htmlFor="description" className="form-label">Description</label>
-                <WYSIWYGEditor value={description} onChange={setDescription}/>
+                <WYSIWYGEditor value={quiz.description}
+                               onChange={(e) => setQuiz({...quiz, description: e.target.value})}/>
             </div>
             <div className="mb-3">
                 <label htmlFor="quizType" className="form-label">Quiz Type</label>
-                <select className="form-select" id="quizType" value={quizType}
-                        onChange={(e) => setQuizType(e.target.value)}>
+                <select className="form-select" id="quizType" value={quiz.quizType}
+                        onChange={(e) => setQuiz({...quiz, quizType: e.target.value})}>
                     <option value="Graded Quiz">Graded Quiz</option>
                     <option value="Practice Quiz">Practice Quiz</option>
                     <option value="Graded Survey">Graded Survey</option>
@@ -128,13 +111,13 @@ function QuizDetailsEditor() {
             </div>
             <div className={"mb-3"}>
                 <label className={"form-label"}>Points</label>
-                <input type={"number"} defaultValue={points} className={"form-control"}
-                       onChange={(e) => setPoints(parseInt(e.target.value))}/>
+                <input type={"number"} defaultValue={quiz.points} className={"form-control"}
+                       onChange={(e) => setQuiz({...quiz, points: e.target.value})}/>
             </div>
             <div className="mb-3">
                 <label htmlFor="assignmentGroup" className="form-label">Assignment Group</label>
-                <select className="form-select" id="assignmentGroup" value={assignmentGroup}
-                        onChange={(e) => setAssignmentGroup(e.target.value)}>
+                <select className="form-select" id="assignmentGroup" value={quiz.assignmentGroup}
+                        onChange={(e) => setQuiz({...quiz, assignmentGroup: e.target.value})}>
                     <option value="Quizzes">Quizzes</option>
                     <option value="Assignments">Assignments</option>
                     <option value="Project">Project</option>
@@ -143,65 +126,69 @@ function QuizDetailsEditor() {
             </div>
             <div className="mb-3">
                 <label htmlFor="shuffleAnswers" className="form-label">Shuffle Answers</label>
-                <select className="form-select" id="quizType" defaultValue={shuffleAnswers + ""}
-                        onChange={() => setShuffleAnswers(!shuffleAnswers)}>
+                <select className="form-select" id="quizType" defaultValue={quiz.shuffleAnswers}
+                        onChange={(e) => setQuiz({...quiz, shuffleAnswers: e.target.value})}>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </div>
             <div className="mb-3">
                 <label className="form-label">Set Time Limit</label>
-                <input type={"number"} className={"form-control"} defaultValue={timeLimit}
-                       onChange={(e) => setTimeLimit(parseInt(e.target.value))}/>
+                <input type={"number"} className={"form-control"} defaultValue={quiz.timeLimit}
+                       onChange={(e) => setQuiz({...quiz, timeLimit: e.target.value})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Allow Multiple Attempts</label>
-                <input type={"checkbox"} checked={multipleAttempts} style={{marginLeft: 10}}
-                       onChange={() => setMultipleAttempts(!multipleAttempts)}/>
+                <input type={"checkbox"} checked={quiz.multipleAttempts} style={{marginLeft: 10}}
+                       onChange={() => setQuiz({...quiz, multipleAttempts: !quiz.multipleAttempts})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Show Correct Answers</label>
-                <input type={"checkbox"} checked={showCorrectAnswers} style={{marginLeft: 10}}
-                       onChange={() => setShowCorrectAnswers(!showCorrectAnswers)}/>
+                <input type={"checkbox"} checked={quiz.showCorrectAnswers} style={{marginLeft: 10}}
+                       onChange={() => setQuiz({...quiz, showCorrectAnswers: !quiz.showCorrectAnswers})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Access Code</label>
-                <input type={"text"} className={"form-control"} defaultValue={accessCode}
-                       onChange={(e) => setAccessCode(e.target.value)}/>
+                <input type={"text"} className={"form-control"} defaultValue={quiz.accessCode}
+                       onChange={(e) => setQuiz({...quiz, accessCode: e.target.value})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">One Question at a Time</label>
-                <input type={"checkbox"} checked={oneQuestionAtATime} style={{marginLeft: 10}}
-                       onChange={() => setOneQuestionAtATime(!oneQuestionAtATime)}/>
+                <input type={"checkbox"} checked={quiz.oneQuestionAtATime} style={{marginLeft: 10}}
+                       onChange={() => setQuiz({...quiz, oneQuestionAtATime: !quiz.oneQuestionAtATime})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Webcam Required</label>
-                <input type={"checkbox"} checked={webcamRequired} style={{marginLeft: 10}}
-                       onChange={() => setWebcamRequired(!webcamRequired)}/>
+                <input type={"checkbox"} checked={quiz.webcamRequired} style={{marginLeft: 10}}
+                       onChange={() => setQuiz({...quiz, webcamRequired: !quiz.webcamRequired})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Lock Questions After Answering</label>
-                <input type={"checkbox"} checked={lockQuestionsAfterAnswering} style={{marginLeft: 10}}
-                       onChange={() => setLockQuestionsAfterAnswering(!lockQuestionsAfterAnswering)}/>
+                <input type={"checkbox"} checked={quiz.lockQuestionsAfterAnswering} style={{marginLeft: 10}}
+                       onChange={() => setQuiz({...quiz, lockQuestionsAfterAnswering: !quiz.lockQuestionsAfterAnswering})}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Due Date</label>
-                <input type="date" value={formattedDate(dueDate)} style={{marginLeft: 10}}
+                <input type="date" value={formattedDate(quiz.dueDate)} style={{marginLeft: 10}}
                        onChange={handleDueDateChange}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Available Date</label>
-                <input type="date" value={formattedDate(availableDate)} style={{marginLeft: 10}}
+                <input type="date" value={formattedDate(quiz.availableDate)} style={{marginLeft: 10}}
                        onChange={handleAvailableDateChange}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Available Date</label>
-                <input type="date" value={formattedDate(untilDate)} style={{marginLeft: 10}}
+                <input type="date" value={formattedDate(quiz.untilDate)} style={{marginLeft: 10}}
                        onChange={handleUntilDateChange}/>
             </div>
             <div className={"btn-toolbar"}>
-                <button className={"btn btn-primary"}>Save</button>
-                <button className={"btn btn-success"}>Save and Publish</button>
+                <Link to={saveUrl}>
+                    <button className={"btn btn-primary"} onClick={createQuiz}>Save</button>
+                </Link>
+                <Link to={cancelUrl}>
+                    <button className={"btn btn-success"}>Save and Publish</button>
+                </Link>
                 <Link to={cancelUrl}>
                     <button className={"btn btn-danger"}>Cancel</button>
                 </Link>
