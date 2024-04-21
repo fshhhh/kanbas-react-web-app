@@ -56,7 +56,7 @@ function QuizPreview() {
 
     const location = useLocation();
     const currentUrl = location.pathname;
-    const urlWithoutLast10Chars = currentUrl.slice(0, -12);
+    const urlWithoutLast10Chars = currentUrl.slice(0, -13);
     const quizEditUrl = `${urlWithoutLast10Chars}/quizedit/quizdetailseditor`;
 
     return (

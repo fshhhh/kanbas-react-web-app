@@ -26,9 +26,10 @@ function QuizDetailsEditor() {
 
     const location = useLocation();
     const currentUrl = location.pathname;
-    const urlWithoutLast10Chars = currentUrl.slice(0, -18);
-    const quizEditUrl = `${urlWithoutLast10Chars}/quizquestionseditor`;
-    const quizEditUrl2 = `${urlWithoutLast10Chars}/quizdetailseditor`;
+    const urlWithoutLast10Chars = currentUrl.slice(0, -19);
+    const quizEditUrl = `${urlWithoutLast10Chars}/quizquestionseditor/`;
+    const quizEditUrl2 = `${urlWithoutLast10Chars}/quizdetailseditor/`;
+    const cancelUrl = currentUrl.slice(0, -27);
 
     const handleDueDateChange = (e: any) => {
         const selectedDate = new Date(e.target.value); // Convert input value to Date object
@@ -150,7 +151,9 @@ function QuizDetailsEditor() {
             <div className={"btn-toolbar"}>
                 <button className={"btn btn-primary"}>Save</button>
                 <button className={"btn btn-success"}>Save and Publish</button>
-                <button className={"btn btn-danger"}>Cancel</button>
+                <Link to={cancelUrl}>
+                    <button className={"btn btn-danger"}>Cancel</button>
+                </Link>
             </div>
         </div>
     )

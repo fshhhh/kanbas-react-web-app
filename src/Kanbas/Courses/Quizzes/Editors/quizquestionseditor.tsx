@@ -7,9 +7,10 @@ function QuizQuestionsEditor() {
 
     const location = useLocation();
     const currentUrl = location.pathname;
-    const urlWithoutLast10Chars = currentUrl.slice(0, -20);
-    const quizEditUrl = `${urlWithoutLast10Chars}/quizdetailseditor`;
-    const quizEditQUrl = `${urlWithoutLast10Chars}/quizquestionseditor`;
+    const urlWithoutLast10Chars = currentUrl.slice(0, -21);
+    const quizEditUrl = `${urlWithoutLast10Chars}/quizdetailseditor/`;
+    const quizEditQUrl = `${urlWithoutLast10Chars}/quizquestionseditor/`;
+    const cancelUrl = currentUrl.slice(0, -30);
 
     return (
         <div>
@@ -20,15 +21,17 @@ function QuizQuestionsEditor() {
                       className={`nav-link ${pathname.includes("quizquestionseditor") ? "active" : ""}`}>Questions</Link>
             </nav>
             {/*TODO: question.map or whatever to display the questions*/}
-            <button>
-                <Link to={"./questionmaker"}>
+            <button style={{marginTop: 20}} className={"btn btn-warning"}>
+                <Link to={"./questionmaker"} style={{color: "black"}}>
                     + New Question
                 </Link>
             </button>
-            <div className={"btn-toolbar"}>
+            <div className={"btn-toolbar"} style={{marginTop: 20}}>
                 <button className={"btn btn-primary"}>Save</button>
                 <button className={"btn btn-success"}>Save and Publish</button>
-                <button className={"btn btn-danger"}>Cancel</button>
+                <Link to={cancelUrl}>
+                    <button className={"btn btn-danger"}>Cancel</button>
+                </Link>
             </div>
         </div>
     )

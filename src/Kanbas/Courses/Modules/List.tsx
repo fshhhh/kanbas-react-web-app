@@ -43,9 +43,6 @@ function ModuleList() {
         dispatch(updateModule(module));
     };
 
-
-
-
     return (
         <div>
             <div className="button">

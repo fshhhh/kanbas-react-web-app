@@ -14,7 +14,6 @@ import QuizPreview from "./Quizzes/quizpreview";
 import QuizEdit from "./Quizzes/quizedit";
 import QuizQuestionsEditor from "./Quizzes/Editors/quizquestionseditor";
 import QuizDetailsEditor from "./Quizzes/Editors/quizdetailseditor";
-import MCQEditor from "./Quizzes/Editors/mcqeditor";
 import QuestionMaker from "./Quizzes/Editors/questionmaker";
 const API_BASE = process.env.REACT_APP_API_BASE;
 function Courses() {

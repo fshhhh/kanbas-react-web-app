@@ -1,18 +1,40 @@
 import {useState} from "react";
 import WYSIWYGEditor from "./WYSIWYG";
-import {FaPlus} from "react-icons/fa6";
+import {FaPencil, FaPlus, FaTrashCan} from "react-icons/fa6";
+import {Link, useLocation} from "react-router-dom";
 
 function QuestionMaker() {
+    const location = useLocation();
+    const url = location.pathname;
+    const cancelUrl = url.slice(0, -13);
+
     const [title, setTitle] = useState("");
     const [prompt, setPrompt] = useState("");
     const [points, setPoints] = useState(0);
     const [questionType, setQuestionType] = useState("");
 
-    const [options, setOptions] = useState([]);
+    const [option, setOption] = useState("");
+    const [options, setOptions] = useState<any[]>(["True", "False", "15"]);
 
-    const handleAddOption = (option: any) => {
-        setOptions(options.concat(option));
+    const handleAddOption = () => {
+        setOptions([...options, option]); // Append the new option to the existing options array
     };
+
+    const handleUpdateOption = () => {
+        //TODO: lol idk
+    }
+
+    const handleDeleteOption = (indexToDelete: any) => {
+        setOptions(prevOptions => prevOptions.filter((_, index) => index !== indexToDelete));
+    };
+
+    const handleUpdate = () => {
+
+    }
+
+    const handleCancel = () => {
+        {console.log(cancelUrl)}
+    }
 
     return (
         <div style={{marginTop: 50}}>
@@ -42,8 +64,40 @@ function QuestionMaker() {
             </div>
             <h3 style={{marginTop: 50}}>Answers</h3>
 
-            {/*{options.map()}*/}
-            <button><FaPlus/> Add Another Answer</button>
+            {options.map((option, index) => (
+                <div key={index} className={"flex-fill"}>
+                    <label htmlFor={`option-${index}`}>Options:</label>
+                    <input
+                        type="text"
+                        id={`option-${index}`}
+                        value={option}
+                        onChange={(e) => {
+                            const newOptions = [...options];
+                            newOptions[index] = e.target.value;
+                            setOptions(newOptions);
+                        }}
+                        className="form-control mb-2"
+                        style={{width: 200}}
+                    />
+                    <button onClick={() => setOption(option)}><FaPencil/></button>
+                    <button onClick={() => handleDeleteOption(index)}><FaTrashCan/></button>
+                </div>
+            ))}
+
+            <input type={"text"} value={option} style={{marginTop: 20}}
+                   onChange={(e) => setOption(e.target.value)}/>
+            <button onClick={handleAddOption}><FaPlus/> Add New Option</button>
+            <button onClick={handleUpdateOption}><FaPencil/> Update Option</button>
+
+            <div className={"btn-toolbar"} style={{marginTop: 20}}>
+                <button className={"btn btn-primary"} style={{backgroundColor: "red"}}
+                        onClick={handleUpdate}>Update Question</button>
+                <Link to={cancelUrl} style={{textDecoration: "none"}}>
+                    <button className={"btn btn-secondary"}
+                            onClick={handleCancel}>Cancel
+                    </button>
+                </Link>
+            </div>
         </div>
     )
 }
