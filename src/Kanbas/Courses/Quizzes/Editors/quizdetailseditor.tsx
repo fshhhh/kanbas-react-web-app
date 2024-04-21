@@ -1,8 +1,45 @@
 import {useState} from "react";
 import {Link, useLocation, useParams} from "react-router-dom";
 import WYSIWYGEditor from "./WYSIWYG";
+import * as client from "../client";
+import {Quiz} from "../client";
 
 function QuizDetailsEditor() {
+    const [quizzes, setQuizzes] = useState<Quiz[]>([]);
+    const [quiz, setQuiz] = useState<Quiz>({
+        _id: "",
+        title: "",
+        quizType: "Graded Quiz",
+        points: "0",
+        assignmentGroup: "QUIZZES",
+        shuffleAnswers: "Yes",
+        timeLimit: "20 Minutes",
+        multipleAttempts: "No",
+        showCorrectAnswers: "Immediately",
+        accessCode: "",
+        oneQuestionAtATime: "Yes",
+        webcamRequired: "No",
+        lockQuestionsAfterAnswering: "No",
+        dueDate: "Sep 21 at 1pm",
+        availableDate: "Sep 21 at 11:40am",
+        untilDate: "Sep 21 at 1pm",
+        for: "Everyone",
+        requireRespondus: "No",
+        requireViewQuizResult: "No",
+        viewResponse: "Always",
+        published: false,
+        course: "",
+        questions: "",
+        questionList: {
+            id: "",
+            name: "",
+            type: "",
+            answer: "",
+            point: 0
+        }
+    });
+
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState("");
     const [quizType, setQuizType] = useState("Graded Quiz");
@@ -23,6 +60,7 @@ function QuizDetailsEditor() {
 
     const {quizId} = useParams(); //will be needed once we incorporate the id into the url
     const { pathname } = useLocation();
+    const { courseId } = useParams();
 
     const location = useLocation();
     const currentUrl = location.pathname;
@@ -46,6 +84,19 @@ function QuizDetailsEditor() {
     function formattedDate(date: Date) {
         return date.toISOString().split('T')[0];
     }
+
+    const update = async () => {
+        await client.updateQuiz(quiz);
+    };
+
+    const createQuiz = async () => {
+        try {
+            const newQuiz = await client.createQuiz(courseId, quiz);
+            setQuizzes([newQuiz, ...quizzes]);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <div>

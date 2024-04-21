@@ -3,10 +3,43 @@ const API_BASE = process.env.REACT_APP_API_BASE;
 const COURSES_API = `${API_BASE}/api/courses`;
 const QUIZZES_API = `${API_BASE}/api/quizzes`;
 
+export interface Quiz {
+    _id: string;
+    title: string;
+    quizType: string;
+    points: string
+    assignmentGroup: string,
+    shuffleAnswers: string,
+    timeLimit: string,
+    multipleAttempts: string,
+    showCorrectAnswers:string,
+    accessCode:string,
+    oneQuestionAtATime:string,
+    webcamRequired: string,
+    lockQuestionsAfterAnswering: string,
+    dueDate: string, //may want to change this to Date later on
+    availableDate: string,
+    untilDate: string,
+    for: string,
+    requireRespondus: string,
+    requireViewQuizResult: string,
+    viewResponse: string,
+    course: string,
+    published: boolean,
+    questions: string,
+    questionList: {
+        id: string,
+        name: string,
+        type: string,
+        answer: string,
+        point: number
+    }
+};
 
-export const updateQuiz = async (quiz: { id: any; }) => {
+
+export const updateQuiz = async (quiz: any) => {
     const response = await axios
-        .put(`${QUIZZES_API}/${quiz.id}`, quiz);
+        .put(`${QUIZZES_API}/${quiz._id}`, quiz);
     return response.data;
 };
 export const deleteQuiz = async (quizId: any) => {
