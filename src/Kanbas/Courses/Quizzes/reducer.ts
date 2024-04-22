@@ -56,6 +56,11 @@ const initialState = {
     },
 };
 
+export const toggleQuizPublished = (quizId: any) => ({
+    type: 'UPDATE_QUIZ_LIST',
+    payload: quizId,
+});
+
 const quizzesSlice = createSlice({
     name: "quizzes",
     initialState,

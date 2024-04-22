@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import {addQuiz, deleteQuiz, setQuiz, setQuizzes, updateQuiz} from "./reducer";
+import {addQuiz, deleteQuiz, setQuiz, setQuizzes, updateQuiz, toggleQuizPublished} from "./reducer";
 import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../store";
@@ -57,14 +57,52 @@ function Quizzes() {
         dispatch(updateQuiz(quiz));
     };
 
-    const availableDate = new Date(`${quiz.availableDate.substr(0, 
-        quiz.availableDate.lastIndexOf(' '))} ${new Date().getFullYear()}`);
-
     const currentDate = new Date();
 
-    const toggleContext = () => {
-        setContext(!context);
+    const [openContextQuizId, setOpenContextQuizId] = useState(null);
+    const toggleContext = (quizId: any) => {
+        setOpenContextQuizId(openContextQuizId === quizId ? null : quizId);
     }
+
+    const [isPublished, setIsPublished] = useState(quiz.published);
+
+    const handlePublishToggle = (quizId: any) => {
+        const updatedQuizList = quizList.map((quiz) =>
+            quiz._id === quizId
+                ? { ...quiz, published: !quiz.published }
+                : quiz
+        );
+        dispatch(toggleQuizPublished(updatedQuizList));
+    };
+    const renderContent = (quiz: any) => {
+        const [monthDay, timeStr] = quiz.availableDate.split(" at ");
+        const [month, day] = monthDay.split(" ");
+        const currentYear = new Date().getFullYear();
+        const monthIndex = new Date(`${month} 1, 2000`).getMonth();
+        const availableDate = new Date(currentYear, monthIndex, day, 23, 59);
+        const currentDate = new Date();
+
+        const [monthDayU, timeStrU] = quiz.untilDate.split(" at ");
+        const [monthU, dayU] = monthDayU.split(" ");
+        const currentYearU = new Date().getFullYear();
+        const monthIndexU = new Date(`${monthU} 1, 2000`).getMonth();
+        const availableDateU = new Date(currentYearU, monthIndexU, dayU, 23, 59);
+
+
+        if (currentDate < availableDate) {
+            return (<span>
+                     <span className="bold">Not available until</span> {quiz.availableDate}
+                </span>
+            );
+        } else if (currentDate <= availableDateU) {
+            return (<span>
+                     <span className="bold">Available until</span> {quiz.untilDate}
+                </span>);
+        } else {
+            return <>Closed</>;
+        }
+    };
+
 
     return (
         <div>
@@ -88,24 +126,28 @@ function Quizzes() {
                             <div>
                                 <FaRocket />
                                 {/*the three dots context menu*/}
-                                <button style={{float: "right", border: "transparent", backgroundColor: "transparent"}} onClick={toggleContext}>
-                                    <FaEllipsisV/>
+                                <button style={{ float: "right", border: "transparent", backgroundColor: "transparent" }} onClick={() => toggleContext(quiz._id)}>
+                                    <FaEllipsisV />
                                 </button>
-                                {context && (
+                                {openContextQuizId === quiz._id && (
                                     <div className="button">
                                         <button><Link to={quizDetailUrl}>Edit</Link></button>
                                         <button onClick={() => handleDeleteQuiz(quiz)}>Delete</button>
-                                        {quiz.published ? <button>Unpublish</button> : <button>Publish</button>}
+                                        <button onClick={() => handlePublishToggle(quiz._id)}>
+                                            {quiz.published ? 'Unpublish' : 'Publish'}
+                                        </button>
                                     </div>
                                 )}
                                 {/*the three dots context menu*/}
                                 {/*TODO: make the context menu appear on a different z-axis maybe?*/}
                                 <h3>Q{quiz.id} - {quiz.title}</h3>
-                                <div> {availableDate < currentDate ? 'Available' :
-                                    <span><span
-                                        className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
+                                <div>
+
+                                    <div key={quiz.id}>{renderContent(quiz)}</div>
+
                                     <span className={"bold"}> Due </span> {quiz.dueDate}
-                                    <span className={"green"}> {quiz.published ? <FaCheckCircle/> : <FaStopCircle/>}</span>
+                                    <span className={"green"}
+                                          onClick={handlePublishToggle}> {quiz.published ? <FaCheckCircle/> : <FaStopCircle/>}</span>
                                 </div>
                             </div>
                             <p>Number of Questions: {quiz.questions}</p>
