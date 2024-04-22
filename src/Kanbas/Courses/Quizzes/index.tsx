@@ -13,7 +13,6 @@ function Quizzes() {
     const [context, setContext] = useState(false);
     const location = useLocation();
     const currentUrl = location.pathname;
-    const quizDetailUrl = `${currentUrl}/quizdetail/`;
 
     const { courseId } = useParams();
     const dispatch = useDispatch();
@@ -66,6 +65,9 @@ function Quizzes() {
         setContext(!context);
         console.log(courseId);
     }
+
+    const nextQuizId = quizList.length + 1;
+    const quizDetailUrl = `${currentUrl}/${nextQuizId}/quizdetail/`;
 
     return (
         <div>
