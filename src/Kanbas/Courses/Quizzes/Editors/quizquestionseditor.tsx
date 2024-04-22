@@ -48,7 +48,7 @@ function QuizQuestionsEditor() {
     const quizEditUrl = `${urlWithoutLast10Chars}/quizdetailseditor/`;
     const quizEditQUrl = `${urlWithoutLast10Chars}/quizquestionseditor/`;
     const saveUrl = currentUrl.slice(0, -29);
-    const cancelUrl = currentUrl.slice(0, -41);
+    const cancelUrl = currentUrl.slice(0, -43);
 
     const createQuiz = async () => {
         try {

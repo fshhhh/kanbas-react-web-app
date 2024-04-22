@@ -10,10 +10,8 @@ import {Quiz} from "./client";
 import {FaCheckCircle, FaEllipsisV, FaPlane, FaRocket, FaStopCircle} from "react-icons/fa";
 
 function Quizzes() {
-    const [context, setContext] = useState(false);
     const location = useLocation();
     const currentUrl = location.pathname;
-    const quizDetailUrl = `${currentUrl}/quizdetail/`;
 
     const { courseId } = useParams();
     const dispatch = useDispatch();
@@ -29,6 +27,9 @@ function Quizzes() {
         state.quizzesReducer.quizzes);
     const quiz = useSelector((state: KanbasState) =>
         state.quizzesReducer.quiz);
+
+    const nextQuizId = quizList.length + 1;
+    const quizDetailUrl = `${currentUrl}/${nextQuizId}/quizdetail/`;
 
     const handleAddQuiz = () => {
         client.createQuiz(courseId, quiz).then((quiz) => {
@@ -140,7 +141,9 @@ function Quizzes() {
                                 )}
                                 {/*the three dots context menu*/}
                                 {/*TODO: make the context menu appear on a different z-axis maybe?*/}
-                                <h3>Q{quiz.id} - {quiz.title}</h3>
+                                <Link to={`./${quiz._id}/quizdetail/`}>
+                                    <h3>Q{quiz.id} - {quiz.title}</h3>
+                                </Link>
                                 <div>
 
                                     <div key={quiz.id}>{renderContent(quiz)}</div>

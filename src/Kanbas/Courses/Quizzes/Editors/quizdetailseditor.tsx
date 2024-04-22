@@ -50,7 +50,7 @@ function QuizDetailsEditor() {
     const quizEditUrl = `${urlWithoutLast10Chars}/quizquestionseditor/`;
     const quizEditUrl2 = `${urlWithoutLast10Chars}/quizdetailseditor/`;
     const saveUrl = currentUrl.slice(0, -27);
-    const cancelUrl = currentUrl.slice(0, -39);
+    const cancelUrl = currentUrl.slice(0, -41);
 
     const handleDueDateChange = (e: any) => {
         const selectedDate = new Date(e.target.value); // Convert input value to Date object
