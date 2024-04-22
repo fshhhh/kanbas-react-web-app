@@ -122,6 +122,11 @@
     float: left;
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
+
 .question-edit {
     border: 1px solid lightgray;
     background-color: #fff;

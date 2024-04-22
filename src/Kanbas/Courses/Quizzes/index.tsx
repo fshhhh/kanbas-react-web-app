@@ -132,7 +132,7 @@ function Quizzes() {
                                 </button>
                                 {openContextQuizId === quiz._id && (
                                     <div className="button">
-                                        <button><Link to={quizDetailUrl}>Edit</Link></button>
+                                        <button><Link to={quizDetailUrl} className={"link"}>Edit</Link></button>
                                         <button onClick={() => handleDeleteQuiz(quiz)}>Delete</button>
                                         <button onClick={() => handlePublishToggle(quiz._id)}>
                                             {quiz.published ? 'Unpublish' : 'Publish'}
@@ -141,8 +141,9 @@ function Quizzes() {
                                 )}
                                 {/*the three dots context menu*/}
                                 {/*TODO: make the context menu appear on a different z-axis maybe?*/}
-                                <Link to={`./${quiz._id}/quizdetail/`}>
-                                    <h3>Q{quiz.id} - {quiz.title}</h3>
+                                <Link to={`./${quiz._id}/quizdetail/`}
+                                      className={"link"}>
+                                    <h3>Q {quiz.title}</h3>
                                 </Link>
                                 <div>
 
