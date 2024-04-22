@@ -96,6 +96,45 @@ function QuizPreview() {
                                 <span className={"option-text"}> False</span></label>
                         </div>
                     )}
+
+                    {currentQuestionData?.type === 'Fill in the Blank' && (
+                        <div className={"option"}>
+                            <label><input name="answer"/>
+                                <span className={"option-text"}></span></label>
+                            <hr />
+                        </div>
+                    )}
+
+                    {currentQuestionData?.type === 'MCQ' && (
+                        <div className={"option"}>
+                            {quiz.questionList.map((question : any) => (
+                                question.type === "MCQ" && (
+                                    <div key={question._id}>
+                                        {question.options.map((option : any, index: any) => (
+                                            <div key={index}>
+                                                <label>
+                                                    <input
+                                                        type="radio"
+                                                        name="answer"
+                                                        value={option.op}
+                                                    />
+                                                    <span className="option-text">{option.op}</span>
+                                                </label>
+                                                {index !== question.options.length - 1 && <hr />}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )
+                            ))}
+                            <hr />
+                            <label><input type="radio" name="answer" value="true" />
+                                <span className={"option-text"}> {currentQuestionData.correctAnswer}</span></label>
+                        </div>
+                    )}
+
+
+
+
                  </div>
             </div>
 

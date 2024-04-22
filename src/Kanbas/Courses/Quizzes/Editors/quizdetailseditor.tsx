@@ -42,6 +42,7 @@ function QuizDetailsEditor() {
 
     const { pathname } = useLocation();
     const { courseId } = useParams();
+    const [enableTimeLimit, setEnableTimeLimit] = useState(true);
 
     const location = useLocation();
     const currentUrl = location.pathname;
@@ -132,11 +133,30 @@ function QuizDetailsEditor() {
                     <option value="No">No</option>
                 </select>
             </div>
+
             <div className="mb-3">
                 <label className="form-label">Set Time Limit</label>
-                <input type={"number"} className={"form-control"} defaultValue={quiz.timeLimit}
-                       onChange={(e) => setQuiz({...quiz, timeLimit: e.target.value})}/>
+                <div className="form-check">
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="enableTimeLimitCheckbox"
+                        checked={enableTimeLimit}
+                        onChange={(e) => setEnableTimeLimit(e.target.checked)}
+                    />
+                    <label className="form-check-label" htmlFor="enableTimeLimitCheckbox">
+                        Enable Time Limit
+                    </label>
+                </div>
+                <input
+                    type="number"
+                    className="form-control"
+                    defaultValue={enableTimeLimit ? 20 : -1}
+                    onChange={(e) => setQuiz({ ...quiz, timeLimit: e.target.value })}
+                    disabled={!enableTimeLimit}
+                />
             </div>
+
             <div className="mb-3">
                 <label className="form-label">Allow Multiple Attempts</label>
                 <input type={"checkbox"} checked={quiz.multipleAttempts} style={{marginLeft: 10}}

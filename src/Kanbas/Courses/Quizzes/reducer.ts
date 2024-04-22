@@ -36,15 +36,20 @@ const initialState = {
             {
                 _id: "Q102",
                 name: "This is the last question?",
-                type: "truefalse",
+                type: "Fill in the Blank",
                 answer: "false",
                 point: 100
             },
             {
                 _id: "Q103",
                 name: "This is the not question?",
-                type: "truefalse",
-                answer: "false",
+                type: "MCQ",
+                correctAnswer: "correct Answer",
+                options: [
+                    {op: "option 1"},
+                    {op: "option 2"},
+                    {op: "option 3"}
+                ],
                 point: 4
             }
         ]
