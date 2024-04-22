@@ -20,20 +20,12 @@ function QuestionMaker() {
         setOptions([...options, option]); // Append the new option to the existing options array
     };
 
-    const handleUpdateOption = () => {
-        //TODO: lol idk
-    }
-
     const handleDeleteOption = (indexToDelete: any) => {
         setOptions(prevOptions => prevOptions.filter((_, index) => index !== indexToDelete));
     };
 
     const handleUpdate = () => {
 
-    }
-
-    const handleCancel = () => {
-        {console.log(cancelUrl)}
     }
 
     return (
@@ -87,14 +79,17 @@ function QuestionMaker() {
             <input type={"text"} value={option} style={{marginTop: 20}}
                    onChange={(e) => setOption(e.target.value)}/>
             <button onClick={handleAddOption}><FaPlus/> Add New Option</button>
-            <button onClick={handleUpdateOption}><FaPencil/> Update Option</button>
+            {/*<button onClick={handleUpdateOption}><FaPencil/> Update Option</button>*/}
 
             <div className={"btn-toolbar"} style={{marginTop: 20}}>
-                <button className={"btn btn-primary"} style={{backgroundColor: "red"}}
-                        onClick={handleUpdate}>Update Question</button>
                 <Link to={cancelUrl} style={{textDecoration: "none"}}>
-                    <button className={"btn btn-secondary"}
-                            onClick={handleCancel}>Cancel
+                    <button className={"btn btn-primary"} style={{backgroundColor: "red"}}
+                            onClick={handleUpdate}>Update Question
+                    </button>
+                </Link>
+                <Link to={cancelUrl} style={{textDecoration: "none"}}>
+                    <button className={"btn btn-secondary"}>
+                        Cancel
                     </button>
                 </Link>
             </div>
