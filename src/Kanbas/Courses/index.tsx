@@ -60,12 +60,12 @@ function Courses() {
                         <Route path="/Assignments" element={<Assignments/>} />
                         <Route path="/Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
                         <Route path="/Quizzes" element={<Quizzes/>} />
-                        <Route path="/Quizzes/quizdetail" element={<Quizdetail/>} />
-                        <Route path="/Quizzes/quizdetail/quizpreview" element={<QuizPreview/>} />
-                        <Route path="/Quizzes/quizdetail/quizedit" element={<QuizEdit/>} />
-                        <Route path="/Quizzes/quizdetail/quizedit/quizquestionseditor" element={<QuizQuestionsEditor/>} />
-                        <Route path="/Quizzes/quizdetail/quizedit/quizdetailseditor" element={<QuizDetailsEditor/>} />
-                        <Route path={"/Quizzes/quizdetail/quizedit/quizquestionseditor/questionmaker"} element={<QuestionMaker/>}/>
+                        <Route path="/Quizzes/:quizId/quizdetail" element={<Quizdetail/>} />
+                        <Route path="/Quizzes/:quizId/quizdetail/quizpreview" element={<QuizPreview/>} />
+                        <Route path="/Quizzes/:quizId/quizdetail/quizedit" element={<QuizEdit/>} />
+                        <Route path="/Quizzes/:quizId/quizdetail/quizedit/quizquestionseditor" element={<QuizQuestionsEditor/>} />
+                        <Route path="/Quizzes/:quizId/quizdetail/quizedit/quizdetailseditor" element={<QuizDetailsEditor/>} />
+                        <Route path={"/Quizzes/:quizId/quizdetail/quizedit/quizquestionseditor/questionmaker"} element={<QuestionMaker/>}/>
                         <Route path="/Announcements" element={<h1>Announcements</h1>} />
                         <Route path="/People" element={<h1>People</h1>} />
                         <Route path="/Files" element={<h1>Files</h1>} />

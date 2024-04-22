@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 interface WYSIWYGEditorProps {
-    value: string;
+    value: any;
     onChange: (value: any) => void;
 }
 

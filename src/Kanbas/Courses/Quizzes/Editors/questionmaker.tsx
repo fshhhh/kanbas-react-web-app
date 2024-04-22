@@ -8,7 +8,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {KanbasState} from "../../../store";
 import {useParams} from "react-router";
 
-// @ts-ignore
 function QuestionMaker() {
     const location = useLocation();
     const url = location.pathname;
@@ -158,13 +157,23 @@ function QuestionMaker() {
             </div>)}
 
             <div className={"btn-toolbar"} style={{marginTop: 20}}>
+                <Link to={cancelUrl} style={{textDecoration: "none"}}>
+                    <button className={"btn btn-primary"} style={{backgroundColor: "red"}}
+                            onClick={handleUpdate}>Update Question
+                    </button>
+                </Link>
+                <Link to={cancelUrl} style={{textDecoration: "none"}}>
+                    <button className={"btn btn-secondary"}>
+                        Cancel
+                    </button>
+                </Link>
                 <button className={"btn btn-primary"} style={{backgroundColor: "red"}}
                         onClick={handleUpdate}>Update Question</button>
-                {/*<Link to={cancelUrl} style={{textDecoration: "none"}}>*/}
+                <Link to={cancelUrl} style={{textDecoration: "none"}}>
                     <button className={"btn btn-secondary"}
                             onClick={handleCancel}>Cancel
                     </button>
-                {/*</Link>*/}
+                </Link>
             </div>
         </div>
     )
