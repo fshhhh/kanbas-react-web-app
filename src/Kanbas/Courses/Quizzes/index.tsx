@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import {addQuiz, deleteQuiz, setQuiz, setQuizzes, updateQuiz} from "./reducer";
+import {addQuiz, deleteQuiz, setQuizzes, updateQuiz} from "./reducer";
 import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../store";
@@ -7,7 +7,7 @@ import {Link, useLocation} from "react-router-dom";
 import "./index.css";
 import * as client from "./client";
 import {Quiz} from "./client";
-import {FaCheckCircle, FaEllipsisV, FaPlane, FaRocket, FaStopCircle} from "react-icons/fa";
+import {FaCheckCircle, FaEllipsisV, FaRocket, FaStopCircle} from "react-icons/fa";
 
 function Quizzes() {
     const [context, setContext] = useState(false);
@@ -64,6 +64,7 @@ function Quizzes() {
 
     const toggleContext = () => {
         setContext(!context);
+        console.log(courseId);
     }
 
     return (
@@ -88,7 +89,8 @@ function Quizzes() {
                             <div>
                                 <FaRocket />
                                 {/*the three dots context menu*/}
-                                <button style={{float: "right", border: "transparent", backgroundColor: "transparent"}} onClick={toggleContext}>
+                                <button style={{float: "right", border: "transparent", backgroundColor: "transparent"}}
+                                        onClick={toggleContext}>
                                     <FaEllipsisV/>
                                 </button>
                                 {context && (
@@ -100,7 +102,9 @@ function Quizzes() {
                                 )}
                                 {/*the three dots context menu*/}
                                 {/*TODO: make the context menu appear on a different z-axis maybe?*/}
-                                <h3>Q{quiz.id} - {quiz.title}</h3>
+                                <Link to={`./${quiz._id}/quizdetail`}>
+                                    <h3>Q{quiz.id} - {quiz.title}</h3>
+                                </Link>
                                 <div> {availableDate < currentDate ? 'Available' :
                                     <span><span
                                         className={"bold"}>Not available until</span> {quiz.availableDate}</span>}
