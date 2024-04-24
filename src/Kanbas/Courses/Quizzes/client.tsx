@@ -44,20 +44,20 @@ export const updateQuiz = async (quiz: any) => {
     // const response = await axios
     //     .put(`${QUIZZES_API}/${quiz._id}`, quiz);
     // return response.data;
-    const response = await api.put(`${COURSES_API}/${quiz._id}`, quiz);
+    const response = await api.put(`${COURSES_API}/quizzes/${quiz._id}`, quiz);
     return response.data;
 };
 export const deleteQuiz = async (quiz: any) => {
     // const response = await axios
     //     .delete(`${QUIZZES_API}/${quizId}`);
     // return response.data;
-    const response = await api.delete(`${COURSES_API}/${quiz._id}`);
+    const response = await api.delete(`${COURSES_API}/quizzes/${quiz._id}`);
     return response.data;
 };
-export const createQuiz = async (quizId: any, quiz: any) => {
+export const createQuiz = async (quiz: any) => {
     // const response = await axios.post(`${COURSES_API}/${courseId}/quizzes`, quiz);
     // return response.data;
-    const response = await api.post(`${COURSES_API}/${quizId}/quizzes`, quiz);
+    const response = await api.post(`${COURSES_API}/quizzes/${quiz._id}`, quiz);
     return response.data
 };
 

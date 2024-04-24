@@ -75,7 +75,7 @@ function QuizDetailsEditor() {
 
     const createQuiz = async () => {
         try {
-            const newQuiz = await client.createQuiz(courseId, quiz);
+            const newQuiz = await client.createQuiz(quiz);
             setQuizzes([newQuiz, ...quizzes]);
         } catch (err) {
             console.log(err);

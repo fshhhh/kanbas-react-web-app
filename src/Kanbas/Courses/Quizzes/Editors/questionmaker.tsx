@@ -167,13 +167,6 @@ function QuestionMaker() {
                         Cancel
                     </button>
                 </Link>
-                <button className={"btn btn-primary"} style={{backgroundColor: "red"}}
-                        onClick={handleUpdate}>Update Question</button>
-                <Link to={cancelUrl} style={{textDecoration: "none"}}>
-                    <button className={"btn btn-secondary"}
-                            onClick={handleCancel}>Cancel
-                    </button>
-                </Link>
             </div>
         </div>
     )

@@ -21,6 +21,8 @@ function Quizzes() {
             .then((quizzes) =>
                 dispatch(setQuizzes(quizzes))
             );
+
+
     }, [courseId, dispatch]);
 
     const quizList = useSelector((state: KanbasState) =>
@@ -30,11 +32,14 @@ function Quizzes() {
 
     const nextQuizId = quizList.length + 1;
     const quizDetailUrl = `${currentUrl}/${nextQuizId}/quizdetail/`;
-
-    const handleAddQuiz = () => {
-        client.createQuiz(courseId, quiz).then((quiz) => {
-            dispatch(addQuiz(quiz));
-        });
+    const [quizzes, setQuizzess] = useState<Quiz[]>([]);
+    const handleAddQuiz = async () => {
+        try {
+            const newQuiz = await client.createQuiz(quiz);
+            setQuizzes([newQuiz, ...quizList]);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const handleDeleteQuiz = async (quiz: Quiz) => {
@@ -109,7 +114,8 @@ function Quizzes() {
         <div>
             <div className={"button"}>
                 <Link to={quizDetailUrl}>
-                    <button type="button" className="wd-fg-color-red button-padding">
+                    <button type="button" className="wd-fg-color-red button-padding"
+                            onClick={handleAddQuiz}>
                         + Quiz
                     </button>
                 </Link>

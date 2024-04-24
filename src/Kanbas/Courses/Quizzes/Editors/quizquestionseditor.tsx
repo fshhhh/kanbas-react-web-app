@@ -52,7 +52,7 @@ function QuizQuestionsEditor() {
 
     const createQuiz = async () => {
         try {
-            const newQuiz = await client.createQuiz(courseId, quiz);
+            const newQuiz = await client.createQuiz(quiz);
             setQuizzes([newQuiz, ...quizzes]);
         } catch (err) {
             console.log(err);
@@ -80,6 +80,7 @@ function QuizQuestionsEditor() {
                     + New Question
                 </Link>
             </button>
+
             <div className={"btn-toolbar"} style={{marginTop: 20}}>
                 <Link to={saveUrl}>
                     <button className={"btn btn-primary"} onClick={createQuiz}>Save</button>
