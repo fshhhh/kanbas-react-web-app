@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 const API_BASE = process.env.REACT_APP_API_BASE;
-const API = `${API_BASE}/a5/assignment`;
 function WorkingWithObjects() {
     const [assignment, setAssignment] = useState({
         id: 1, title: "NodeJS Assignment",
@@ -53,12 +52,12 @@ function WorkingWithObjects() {
 
 
             <h4>Retrieving Objects</h4>
-            <a href="http://localhost:4000/a5/assignment">
+            <a href={`${process.env.REACT_APP_API_BASE}/a5/assignment`}>
                 Get Assignment
             </a>
 
             <h4>Retrieving Properties</h4>
-            <a href="http://localhost:4000/a5/assignment/title">
+            <a href={`${process.env.REACT_APP_API_BASE}/a5/assignment/title`}>
                 Get Title
             </a>
 
