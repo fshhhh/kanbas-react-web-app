@@ -52,12 +52,12 @@ function WorkingWithObjects() {
 
 
             <h4>Retrieving Objects</h4>
-            <a href={`${process.env.REACT_APP_API_BASE}/a5/assignment`}>
+            <a href={`${API_BASE}/a5/assignment`}>
                 Get Assignment
             </a>
 
             <h4>Retrieving Properties</h4>
-            <a href={`${process.env.REACT_APP_API_BASE}/a5/assignment/title`}>
+            <a href={`${API_BASE}/a5/assignment/title`}>
                 Get Title
             </a>
 

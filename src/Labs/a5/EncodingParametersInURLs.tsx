@@ -62,20 +62,20 @@ function EncodingParametersInURLs() {
 
 
             <h3>Path Parameters</h3>
-            <a href={`http://localhost:4000/a5/add/${a}/${b}`}>
+            <a href={`${API_BASE}/a5/add/${a}/${b}`}>
                 Add {a} + {b}
             </a>
-            <a href={`http://localhost:4000/a5/subtract/${a}/${b}`}>
+            <a href={`${API_BASE}/a5/subtract/${a}/${b}`}>
                 Substract {a} - {b}
             </a>
 
             <h3>Query Parameters</h3>
             <a className="btn btn-primary"
-               href={`http://localhost:4000/a5/calculator?operation=add&a=${a}&b=${b}`}>
+               href={`${API_BASE}/a5/calculator?operation=add&a=${a}&b=${b}`}>
                 Add {a} + {b}
             </a>
             <a className="btn btn-danger"
-               href={`http://localhost:4000/a5/calculator?operation=subtract&a=${a}&b=${b}`}>
+               href={`${API_BASE}/a5/calculator?operation=subtract&a=${a}&b=${b}`}>
                 Substract {a} - {b}
             </a>
 
